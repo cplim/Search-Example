@@ -22,8 +22,9 @@
 		CF918098141621BB0021C598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918071141621BA0021C598 /* Foundation.framework */; };
 		CF918099141621BB0021C598 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918073141621BA0021C598 /* CoreGraphics.framework */; };
 		CF9180A1141621BB0021C598 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF91809F141621BB0021C598 /* InfoPlist.strings */; };
-		CF9180A3141621BB0021C598 /* SearchExampleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = CF9180A2141621BB0021C598 /* SearchExampleTests.h */; };
-		CF9180A5141621BB0021C598 /* SearchExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9180A4141621BB0021C598 /* SearchExampleTests.m */; };
+		CFC085EF1419EF8E009E5DD9 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC085E71419EF8E009E5DD9 /* libOCMock.a */; };
+		CFFA19B7141788DC00413486 /* SearchServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19B6141788DC00413486 /* SearchServiceTest.m */; };
+		CFFA19BB14178B8E00413486 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SearchService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +58,17 @@
 		CF918095141621BB0021C598 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CF91809E141621BB0021C598 /* SearchExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SearchExampleTests-Info.plist"; sourceTree = "<group>"; };
 		CF9180A0141621BB0021C598 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CF9180A2141621BB0021C598 /* SearchExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchExampleTests.h; sourceTree = "<group>"; };
-		CF9180A4141621BB0021C598 /* SearchExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchExampleTests.m; sourceTree = "<group>"; };
+		CFC085E71419EF8E009E5DD9 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		CFC085E91419EF8E009E5DD9 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		CFC085EA1419EF8E009E5DD9 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		CFC085EB1419EF8E009E5DD9 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		CFC085EC1419EF8E009E5DD9 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		CFC085ED1419EF8E009E5DD9 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		CFC085EE1419EF8E009E5DD9 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		CFFA19B5141788DC00413486 /* SearchServiceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchServiceTest.h; sourceTree = "<group>"; };
+		CFFA19B6141788DC00413486 /* SearchServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchServiceTest.m; sourceTree = "<group>"; };
+		CFFA19B914178B8E00413486 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
+		CFFA19BA14178B8E00413486 /* SearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,7 @@
 				CF918097141621BB0021C598 /* UIKit.framework in Frameworks */,
 				CF918098141621BB0021C598 /* Foundation.framework in Frameworks */,
 				CF918099141621BB0021C598 /* CoreGraphics.framework in Frameworks */,
+				CFC085EF1419EF8E009E5DD9 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +100,7 @@
 		CF918060141621B90021C598 = {
 			isa = PBXGroup;
 			children = (
+				CFC085E61419EF8E009E5DD9 /* Libraries */,
 				CF918075141621BA0021C598 /* SearchExample */,
 				CF91809C141621BB0021C598 /* SearchExampleTests */,
 				CF91806E141621BA0021C598 /* Frameworks */,
@@ -124,6 +136,8 @@
 				CF918081141621BA0021C598 /* iPhone */,
 				CF918088141621BB0021C598 /* iPad */,
 				CF918076141621BA0021C598 /* Supporting Files */,
+				CFFA19B914178B8E00413486 /* SearchService.h */,
+				CFFA19BA14178B8E00413486 /* SearchService.m */,
 			);
 			path = SearchExample;
 			sourceTree = "<group>";
@@ -162,9 +176,9 @@
 		CF91809C141621BB0021C598 /* SearchExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				CF9180A2141621BB0021C598 /* SearchExampleTests.h */,
-				CF9180A4141621BB0021C598 /* SearchExampleTests.m */,
 				CF91809D141621BB0021C598 /* Supporting Files */,
+				CFFA19B5141788DC00413486 /* SearchServiceTest.h */,
+				CFFA19B6141788DC00413486 /* SearchServiceTest.m */,
 			);
 			path = SearchExampleTests;
 			sourceTree = "<group>";
@@ -176,6 +190,28 @@
 				CF91809F141621BB0021C598 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFC085E61419EF8E009E5DD9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				CFC085E71419EF8E009E5DD9 /* libOCMock.a */,
+				CFC085E81419EF8E009E5DD9 /* OCMock */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		CFC085E81419EF8E009E5DD9 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				CFC085E91419EF8E009E5DD9 /* NSNotificationCenter+OCMAdditions.h */,
+				CFC085EA1419EF8E009E5DD9 /* OCMArg.h */,
+				CFC085EB1419EF8E009E5DD9 /* OCMConstraint.h */,
+				CFC085EC1419EF8E009E5DD9 /* OCMock.h */,
+				CFC085ED1419EF8E009E5DD9 /* OCMockObject.h */,
+				CFC085EE1419EF8E009E5DD9 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9180A1141621BB0021C598 /* InfoPlist.strings in Resources */,
-				CF9180A3141621BB0021C598 /* SearchExampleTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +322,7 @@
 				CF918080141621BA0021C598 /* SearchExampleAppDelegate.m in Sources */,
 				CF918084141621BA0021C598 /* SearchExampleAppDelegate_iPhone.m in Sources */,
 				CF91808B141621BB0021C598 /* SearchExampleAppDelegate_iPad.m in Sources */,
+				CFFA19BB14178B8E00413486 /* SearchService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF9180A5141621BB0021C598 /* SearchExampleTests.m in Sources */,
+				CFFA19B7141788DC00413486 /* SearchServiceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +450,7 @@
 		CF9180AC141621BB0021C598 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SearchExample.app/SearchExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -421,7 +458,14 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SearchExample/SearchExample-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries/**";
 				INFOPLIST_FILE = "SearchExampleTests/SearchExampleTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"$(PROJECT_DIR)/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -431,6 +475,7 @@
 		CF9180AD141621BB0021C598 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SearchExample.app/SearchExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -438,7 +483,14 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SearchExample/SearchExample-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries/**";
 				INFOPLIST_FILE = "SearchExampleTests/SearchExampleTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Libraries";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"$(PROJECT_DIR)/Libraries/libOCMock.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -464,6 +516,7 @@
 				CF9180AA141621BB0021C598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF9180AB141621BB0021C598 /* Build configuration list for PBXNativeTarget "SearchExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +525,7 @@
 				CF9180AD141621BB0021C598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
