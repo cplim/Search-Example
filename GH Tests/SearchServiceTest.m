@@ -7,9 +7,9 @@
 //
 
 #import <GHUnitIOS/GHUnit.h> 
-#import "ExampleAsyncTest.h"
+#import "SearchServiceTest.h"
 
-@implementation ExampleAsyncTest
+@implementation SearchServiceTest
 
 - (id)init
 {
@@ -21,32 +21,34 @@
     return self;
 }
 
+- (void)setUp {
+    [super setUp];
+    searchService = [[SearchService alloc] initWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
+}
 
-- (void)testURLConnection {
-    
-    // Call prepare to setup the asynchronous action.
-    // This helps in cases where the action is synchronous and the
-    // action occurs before the wait is actually called.
+- (void)tearDown {
+    [searchService release];
+    [super tearDown];
+}
+
+- (void)testShouldReturnResultsWhenSearchIsInvoked {
     [self prepare];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.google.com"]]; // http://www.google.com"]];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    [searchService searchFor:@"motor cars" at:@"melbourne vic" delegate:self];
     
-    // Wait until notify called for timeout (seconds); If notify is not called with kGHUnitWaitStatusSuccess then
-    // we will throw an error.
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10.0];
-    
-    [connection release];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // Notify of success, specifying the method where wait is called.
     // This prevents stray notifies from affecting other tests.
-    [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testURLConnection)];
+    GHTestLog(@"Finished loading!");
+    [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldReturnResultsWhenSearchIsInvoked)];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // Notify of connection failure
+    GHTestLog(@"Failed loading");
     [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testURLConnection)];
 }
 

@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SearchService.h"
 
-@interface ExampleAsyncTest : GHAsyncTestCase
-
+@interface SearchServiceTest : GHAsyncTestCase {
+    SearchService *searchService;
+}
+- (void)testShouldReturnResultsWhenSearchIsInvoked;
 @end
 
