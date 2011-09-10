@@ -33,7 +33,10 @@
 
 - (void) searchFor:(NSString*)what at:(NSString*)where delegate:(id)delegate
 {
-    NSString* query = [NSString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%s&query=%s&location=%s", apiKey, what, where];
+    NSString* query = [NSString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@&query=%@&location=%@", 
+                       [apiKey stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
+                       [what stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
+                       [where stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL* queryUrl = [NSURL URLWithString:query];
     NSURLRequest* requestUrl = [[NSURLRequest alloc] initWithURL:queryUrl];
     
@@ -42,6 +45,5 @@
     [queryConnection release];
     [requestUrl release];
 }
-
 
 @end

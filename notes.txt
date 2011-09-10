@@ -2,3 +2,6 @@
 # new project
 # register on developers.sensis.com.au
 # write tests
+#
+# http://www.raywenderlich.com/3716/unit-testing-in-xcode-4-quick-start-guide
+# http://blog.xebia.com/2011/03/ios-xcode-4-ghunit-mobile-tddcontinuous-testing-part-2-of-n/

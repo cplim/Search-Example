@@ -12,6 +12,7 @@
 @interface SearchServiceTest : SenTestCase {
 @private
     SearchService *searchService;
+    id mockDelegate;
 }
 - (void)testShouldReturnResultsWhenSearchIsInvoked;
 @end
