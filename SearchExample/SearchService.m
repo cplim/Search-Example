@@ -8,6 +8,10 @@
 
 #import "SearchService.h"
 
+@interface SearchService (private)
+- (NSString*) queryUrl:(NSString*)what location:(NSString*)where;
+@end
+
 @implementation SearchService
 
 - (id) init 
@@ -33,10 +37,7 @@
 
 - (void) searchFor:(NSString*)what at:(NSString*)where delegate:(id)delegate
 {
-    NSString* query = [NSString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@&query=%@&location=%@", 
-                       [apiKey stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
-                       [what stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
-                       [where stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSString* query = [self queryUrl:what location:where];
     NSURL* queryUrl = [NSURL URLWithString:query];
     NSURLRequest* requestUrl = [[NSURLRequest alloc] initWithURL:queryUrl];
     
@@ -44,6 +45,14 @@
     
     [queryConnection release];
     [requestUrl release];
+}
+
+- (NSString*) queryUrl:(NSString*)what location:(NSString*)where
+{
+    return  [NSString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@&query=%@&location=%@", 
+            [apiKey stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
+            [what stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
+            [where stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end

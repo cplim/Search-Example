@@ -1,40 +1,30 @@
 //
-//  ExampleAsyncTest.m
+//  SearchServiceIntegrationTest.m
 //  SearchExample
 //
 //  Created by C.P. Lim on 10/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
 #import <GHUnitIOS/GHUnit.h> 
-#import "SearchServiceTest.h"
+#import "SearchServiceIntegrationTest.h"
 
-@implementation SearchServiceTest
+@implementation SearchServiceIntegrationTest
 
-- (id)init
+- (void)setUpClass
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)setUp {
-    [super setUp];
     searchService = [[SearchService alloc] initWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
 }
 
-- (void)tearDown {
+- (void)tearDownClass
+{
     [searchService release];
-    [super tearDown];
 }
 
 - (void)testShouldReturnResultsWhenSearchIsInvoked {
     [self prepare];
     
-    [searchService searchFor:@"motor cars" at:@"melbourne vic" delegate:self];
+    [searchService searchFor:@"motor cars" at:@"222 lonsdale st, melbourne vic" delegate:self];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10.0];
 }
