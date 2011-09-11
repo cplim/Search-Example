@@ -50,9 +50,9 @@
 - (NSString*) queryUrl:(NSString*)what location:(NSString*)where
 {
     return  [NSString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@&query=%@&location=%@", 
-            [apiKey stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
-            [what stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], 
-            [where stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            [apiKey stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], 
+            [what stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], 
+            [where stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
 }
 
 @end
