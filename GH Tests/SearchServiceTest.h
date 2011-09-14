@@ -1,21 +1,21 @@
 //
-//  SearchServiceTest.h
+//  SearchServiceIntegrationTest.h
 //  SearchExample
 //
-//  Created by C.P. Lim on 11/09/11.
+//  Created by C.P. Lim on 10/09/11.
 //  Copyright 2011 C.P. Lim. All rights reserved.
+//
 
-#import <SenTestingKit/SenTestingKit.h>
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "SearchService.h"
 
-@interface SearchServiceTest : SenTestCase
-{
-    SearchService* searchService;
+@interface SearchServiceTest : GHAsyncTestCase {
+    SearchService *searchService;
 }
-
+- (void)testShouldReturnResultsWhenSearchIsInvoked;
 - (void)testShouldIncludeAPIKeyInRequestUrl;
 - (void)testShouldIncludeQueryInRequestUrl;
 - (void)testShouldIncludeLocationInRequestUrl;
 
 @end
+
