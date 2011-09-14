@@ -13,8 +13,8 @@
 		CF77778F141B2CC100690920 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF77778D141B2CC100690920 /* InfoPlist.strings */; };
 		CF777791141B2CC100690920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF777790141B2CC100690920 /* main.m */; };
 		CF7777A8141B2D0200690920 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7777A7141B2D0200690920 /* GHUnitIOS.framework */; };
-		CF7777AB141B2E5A00690920 /* SearchServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7777AA141B2E5A00690920 /* SearchServiceTest.m */; };
-		CF7777B8141B443600690920 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SearchService.m */; };
+		CF7777AB141B2E5A00690920 /* SESearchServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */; };
+		CF7777B8141B443600690920 /* SESearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SESearchService.m */; };
 		CF918070141621BA0021C598 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF91806F141621BA0021C598 /* UIKit.framework */; };
 		CF918072141621BA0021C598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918071141621BA0021C598 /* Foundation.framework */; };
 		CF918074141621BA0021C598 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918073141621BA0021C598 /* CoreGraphics.framework */; };
@@ -25,7 +25,9 @@
 		CF918087141621BB0021C598 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF918085141621BB0021C598 /* MainWindow_iPhone.xib */; };
 		CF91808B141621BB0021C598 /* SearchExampleAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = CF91808A141621BB0021C598 /* SearchExampleAppDelegate_iPad.m */; };
 		CF91808E141621BB0021C598 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF91808C141621BB0021C598 /* MainWindow_iPad.xib */; };
-		CFFA19BB14178B8E00413486 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SearchService.m */; };
+		CFF70B3F1420DAFB0029BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF70B3E1420DAFB0029BA83 /* JSONKit.m */; };
+		CFF70B401420DDE80029BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF70B3E1420DAFB0029BA83 /* JSONKit.m */; };
+		CFFA19BB14178B8E00413486 /* SESearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SESearchService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +37,8 @@
 		CF777790141B2CC100690920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF777792141B2CC100690920 /* GH Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GH Tests-Prefix.pch"; sourceTree = "<group>"; };
 		CF7777A7141B2D0200690920 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
-		CF7777A9141B2E5A00690920 /* SearchServiceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchServiceTest.h; sourceTree = "<group>"; };
-		CF7777AA141B2E5A00690920 /* SearchServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchServiceTest.m; sourceTree = "<group>"; };
+		CF7777A9141B2E5A00690920 /* SESearchServiceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchServiceTest.h; sourceTree = "<group>"; };
+		CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchServiceTest.m; sourceTree = "<group>"; };
 		CF91806B141621BA0021C598 /* SearchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF91806F141621BA0021C598 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CF918071141621BA0021C598 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,8 +63,10 @@
 		CFC085EC1419EF8E009E5DD9 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
 		CFC085ED1419EF8E009E5DD9 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		CFC085EE1419EF8E009E5DD9 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		CFFA19B914178B8E00413486 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
-		CFFA19BA14178B8E00413486 /* SearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchService.m; sourceTree = "<group>"; };
+		CFF70B3D1420DAFB0029BA83 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		CFF70B3E1420DAFB0029BA83 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		CFFA19B914178B8E00413486 /* SESearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchService.h; sourceTree = "<group>"; };
+		CFFA19BA14178B8E00413486 /* SESearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				CF77778B141B2CC100690920 /* Supporting Files */,
-				CF7777A9141B2E5A00690920 /* SearchServiceTest.h */,
-				CF7777AA141B2E5A00690920 /* SearchServiceTest.m */,
+				CF7777A9141B2E5A00690920 /* SESearchServiceTest.h */,
+				CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */,
 			);
 			path = "GH Tests";
 			sourceTree = "<group>";
@@ -146,13 +150,14 @@
 		CF918075141621BA0021C598 /* SearchExample */ = {
 			isa = PBXGroup;
 			children = (
+				CFF70B3C1420DADC0029BA83 /* JSONKit-1.4 */,
 				CF91807E141621BA0021C598 /* SearchExampleAppDelegate.h */,
 				CF91807F141621BA0021C598 /* SearchExampleAppDelegate.m */,
 				CF918081141621BA0021C598 /* iPhone */,
 				CF918088141621BB0021C598 /* iPad */,
 				CF918076141621BA0021C598 /* Supporting Files */,
-				CFFA19B914178B8E00413486 /* SearchService.h */,
-				CFFA19BA14178B8E00413486 /* SearchService.m */,
+				CFFA19B914178B8E00413486 /* SESearchService.h */,
+				CFFA19BA14178B8E00413486 /* SESearchService.m */,
 			);
 			path = SearchExample;
 			sourceTree = "<group>";
@@ -208,6 +213,15 @@
 				CFC085EE1419EF8E009E5DD9 /* OCMockRecorder.h */,
 			);
 			path = OCMock;
+			sourceTree = "<group>";
+		};
+		CFF70B3C1420DADC0029BA83 /* JSONKit-1.4 */ = {
+			isa = PBXGroup;
+			children = (
+				CFF70B3D1420DAFB0029BA83 /* JSONKit.h */,
+				CFF70B3E1420DAFB0029BA83 /* JSONKit.m */,
+			);
+			name = "JSONKit-1.4";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,9 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF7777B8141B443600690920 /* SearchService.m in Sources */,
+				CFF70B401420DDE80029BA83 /* JSONKit.m in Sources */,
+				CF7777B8141B443600690920 /* SESearchService.m in Sources */,
 				CF777791141B2CC100690920 /* main.m in Sources */,
-				CF7777AB141B2E5A00690920 /* SearchServiceTest.m in Sources */,
+				CF7777AB141B2E5A00690920 /* SESearchServiceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +325,8 @@
 				CF918080141621BA0021C598 /* SearchExampleAppDelegate.m in Sources */,
 				CF918084141621BA0021C598 /* SearchExampleAppDelegate_iPhone.m in Sources */,
 				CF91808B141621BB0021C598 /* SearchExampleAppDelegate_iPad.m in Sources */,
-				CFFA19BB14178B8E00413486 /* SearchService.m in Sources */,
+				CFFA19BB14178B8E00413486 /* SESearchService.m in Sources */,
+				CFF70B3F1420DAFB0029BA83 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

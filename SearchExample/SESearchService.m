@@ -1,18 +1,18 @@
 //
-//  SearchService.m
+//  SESearchService.m
 //  SearchExample
 //
 //  Created by C.P. Lim on 7/09/11.
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import "SearchService.h"
+#import "SESearchService.h"
 
-@interface SearchService (private)
+@interface SESearchService (private)
 - (NSString*) queryUrl:(NSString*)what location:(NSString*)where;
 @end
 
-@implementation SearchService
+@implementation SESearchService
 
 - (id) init 
 {

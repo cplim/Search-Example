@@ -1,5 +1,5 @@
 //
-//  SearchServiceIntegrationTest.m
+//  SESearchServiceTest.m
 //  SearchExample
 //
 //  Created by C.P. Lim on 10/09/11.
@@ -7,18 +7,23 @@
 //
 
 #import <GHUnitIOS/GHUnit.h> 
-#import "SearchServiceTest.h"
+#import "JSONKit.h"
+#import "SESearchServiceTest.h"
 
-@implementation SearchServiceTest
+@implementation SESearchServiceTest
 
 - (void)setUpClass
 {
-    searchService = [[SearchService alloc] initWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
+    searchService = [[SESearchService alloc] initWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
+    _data = nil;
 }
 
 - (void)tearDownClass
 {
     [searchService release];
+    if(_data != nil) {
+        [_data release];
+    }
 }
 
 - (void)testShouldIncludeAPIKeyInRequestUrl
@@ -63,6 +68,12 @@
     // Notify of success, specifying the method where wait is called.
     // This prevents stray notifies from affecting other tests.
     GHTestLog(@"Finished loading!");
+    
+    if([_data length] > 0) {
+        NSDictionary* json = [[JSONDecoder decoder] objectWithData:_data];
+//        GHTestLog([json objectForKey:@"time"]);
+    }
+    
     [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldReturnResultsWhenSearchIsInvoked)];
 }
 
@@ -74,6 +85,13 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     //GHTestLog(@"%@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
+    GHTestLog(@"Called didReceiveData");
+    if(_data == nil) {
+        _data = [[NSMutableData alloc] initWithData:data];
+    }
+    else {
+        [_data appendData:data];
+    }
 } 
 
 @end

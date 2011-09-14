@@ -1,5 +1,5 @@
 //
-//  SearchService.h
+//  SESearchService.h
 //  SearchExample
 //
 //  Created by C.P. Lim on 7/09/11.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SearchService : NSObject {
+@interface SESearchService : NSObject {
     NSString* apiKey;
 }
 - (id) initWithApiKey: (NSString*)apiKey;

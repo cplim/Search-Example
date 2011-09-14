@@ -1,5 +1,5 @@
 //
-//  SearchServiceIntegrationTest.h
+//  SESearchServiceTest.h
 //  SearchExample
 //
 //  Created by C.P. Lim on 10/09/11.
@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SearchService.h"
+#import "SESearchService.h"
 
-@interface SearchServiceTest : GHAsyncTestCase {
-    SearchService *searchService;
+@interface SESearchServiceTest : GHAsyncTestCase {
+    SESearchService* searchService;
+    NSMutableData* _data;
 }
 - (void)testShouldReturnResultsWhenSearchIsInvoked;
 - (void)testShouldIncludeAPIKeyInRequestUrl;
