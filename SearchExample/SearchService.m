@@ -3,7 +3,7 @@
 //  SearchExample
 //
 //  Created by C.P. Lim on 7/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
 #import "SearchService.h"
@@ -49,10 +49,18 @@
 
 - (NSString*) queryUrl:(NSString*)what location:(NSString*)where
 {
-    return  [NSString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@&query=%@&location=%@", 
-            [apiKey stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], 
-            [what stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], 
-            [where stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    NSMutableString* urlString = [NSMutableString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@", 
+                                  [apiKey stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]]; 
+    
+    if ([what length] != 0) {
+        [urlString appendFormat:@"&query=%@", [what stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    }
+    
+    if ([where length] != 0) {
+        [urlString appendFormat:@"&location=%@", [where stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    }
+    
+    return urlString;
 }
 
 @end

@@ -21,22 +21,34 @@
     [searchService release];
 }
 
-- (void)testShouldIncludeAPIKeyInRequestUrl 
+- (void)testShouldIncludeAPIKeyInRequestUrl
 {
     NSString* queryUrl = [searchService queryUrl:nil location:nil];
     GHAssertTrue([queryUrl rangeOfString:@"key=u9qwcpa498wksudsrg79nxsx"].location != NSNotFound, @"Failed to include key in url");
 }
 
-- (void) testShouldIncludeQueryInRequestUrl
+- (void) testShouldIncludeQueryInRequestUrlWhenSpecified
 {
     NSString* queryUrl = [searchService queryUrl:@"motor cars used" location:nil];
     GHAssertTrue([queryUrl rangeOfString:@"query=motor%20cars%20used"].location != NSNotFound, @"Failed to include query in url");
 }
 
-- (void)testShouldIncludeLocationInRequestUrl
+- (void) testShouldNotIncludeQueryInRequestUrlWhenNotSpecified
+{
+    NSString* queryUrl = [searchService queryUrl:nil location:nil];
+    GHAssertTrue([queryUrl rangeOfString:@"query="].location == NSNotFound, @"Should not include query in url");
+}
+
+- (void)testShouldIncludeLocationInRequestUrlWhenSpecified
 {
     NSString* queryUrl = [searchService queryUrl:nil location:@"26 xyz road, suburb north"];
     GHAssertTrue([queryUrl rangeOfString:@"location=26%20xyz%20road,%20suburb%20north"].location != NSNotFound, @"Failed to include location in url");
+}
+
+- (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified
+{
+    NSString* queryUrl = [searchService queryUrl:nil location:nil];
+    GHAssertTrue([queryUrl rangeOfString:@"location="].location == NSNotFound, @"Should not include location in url");
 }
 
 - (void)testShouldReturnResultsWhenSearchIsInvoked {

@@ -14,8 +14,10 @@
 }
 - (void)testShouldReturnResultsWhenSearchIsInvoked;
 - (void)testShouldIncludeAPIKeyInRequestUrl;
-- (void)testShouldIncludeQueryInRequestUrl;
-- (void)testShouldIncludeLocationInRequestUrl;
+- (void)testShouldIncludeQueryInRequestUrlWhenSpecified;
+- (void)testShouldNotIncludeQueryInRequestUrlWhenNotSpecified;
+- (void)testShouldIncludeLocationInRequestUrlWhenSpecified;
+- (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified;
 
 @end
 
