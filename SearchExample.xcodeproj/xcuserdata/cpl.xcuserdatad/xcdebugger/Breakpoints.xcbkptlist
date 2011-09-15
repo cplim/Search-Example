@@ -143,11 +143,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "GH Tests/SESearchServiceTest.m"
-         timestampString = "337698240.022508"
+         timestampString = "337811806.293143"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "47"
+         endingLineNumber = "47"
          landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -157,11 +157,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "SearchExample/SESensisSearchURL.m"
-         timestampString = "337811171.232558"
+         timestampString = "337811806.293143"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
          landmarkName = "-asQueryUrl"
          landmarkType = "5">
       </FileBreakpoint>

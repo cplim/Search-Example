@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SESensisSearchURL.h"
 
-@interface SESearchService : NSObject {
-    NSString* apiKey;
-}
-- (id) initWithApiKey: (NSString*)apiKey;
-- (void) searchFor:(NSString*)what at:(NSString*)where delegate:(id)delegate;
+@interface SESearchService : NSObject 
+- (void) searchBy:(SESensisSearchURL*)search delegate:(id)delegate;
 @end

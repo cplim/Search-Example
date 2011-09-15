@@ -10,15 +10,10 @@
 #import "SESearchService.h"
 
 @interface SESearchServiceTest : GHAsyncTestCase {
-    SESearchService* searchService;
+    SESearchService* _searchService;
     NSMutableData* _data;
 }
 - (void)testShouldReturnResultsWhenSearchIsInvoked;
-- (void)testShouldIncludeAPIKeyInRequestUrl;
-- (void)testShouldIncludeQueryInRequestUrlWhenSpecified;
-- (void)testShouldNotIncludeQueryInRequestUrlWhenNotSpecified;
-- (void)testShouldIncludeLocationInRequestUrlWhenSpecified;
-- (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified;
 
 @end
 

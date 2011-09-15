@@ -13,6 +13,12 @@
 
 @implementation SESensisSearchURL
 
++ (SESensisSearchURL*) sensisSearchURLWithApiKey:(NSString *)apiKey
+{
+    SESensisSearchURL* sensisSearchURL = [[SESensisSearchURL alloc] initWithApiKey:apiKey];
+    return [sensisSearchURL autorelease];
+}
+
 - (id) init 
 {
     return [self initWithApiKey:@""];

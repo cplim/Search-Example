@@ -16,14 +16,8 @@
 
 - (id) init 
 {
-    return [self initWithApiKey:@""];
-}
-
-- (id)initWithApiKey:(NSString *)key
-{
     self = [super init];
     if (self) {
-        apiKey = [[NSString alloc] initWithString:key];
     }
     
     return self;
@@ -31,13 +25,12 @@
 
 - (void) dealloc
 {
-    [apiKey release];
     [super dealloc];
 }
 
-- (void) searchFor:(NSString*)what at:(NSString*)where delegate:(id)delegate
+- (void) searchBy:(SESensisSearchURL *)search delegate:(id)delegate
 {
-    NSString* query = [self queryUrl:what location:where];
+    NSString* query = [search asQueryUrl];
     NSURL* queryUrl = [NSURL URLWithString:query];
     NSURLRequest* requestUrl = [[NSURLRequest alloc] initWithURL:queryUrl];
     
@@ -45,22 +38,6 @@
     
     [queryConnection release];
     [requestUrl release];
-}
-
-- (NSString*) queryUrl:(NSString*)what location:(NSString*)where
-{
-    NSMutableString* urlString = [NSMutableString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@", 
-                                  [apiKey stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]]; 
-    
-    if ([what length] != 0) {
-        [urlString appendFormat:@"&query=%@", [what stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-    }
-    
-    if ([where length] != 0) {
-        [urlString appendFormat:@"&location=%@", [where stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-    }
-    
-    return urlString;
 }
 
 @end
