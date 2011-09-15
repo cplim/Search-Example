@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF66BE241422907C00C55DB9 /* SESensisSearchURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66BE231422907C00C55DB9 /* SESensisSearchURLTest.m */; };
+		CF66BE27142291B300C55DB9 /* SESensisSearchURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */; };
+		CF66BE28142291B300C55DB9 /* SESensisSearchURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */; };
 		CF777787141B2CC100690920 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF91806F141621BA0021C598 /* UIKit.framework */; };
 		CF777788141B2CC100690920 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918071141621BA0021C598 /* Foundation.framework */; };
 		CF777789141B2CC100690920 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918073141621BA0021C598 /* CoreGraphics.framework */; };
@@ -31,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF66BE221422907C00C55DB9 /* SESensisSearchURLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisSearchURLTest.h; sourceTree = "<group>"; };
+		CF66BE231422907C00C55DB9 /* SESensisSearchURLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisSearchURLTest.m; sourceTree = "<group>"; };
+		CF66BE25142291B300C55DB9 /* SESensisSearchURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisSearchURL.h; sourceTree = "<group>"; };
+		CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisSearchURL.m; sourceTree = "<group>"; };
 		CF777785141B2CC100690920 /* GH Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GH Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF77778C141B2CC100690920 /* GH Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GH Tests-Info.plist"; sourceTree = "<group>"; };
 		CF77778E141B2CC100690920 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -100,6 +107,8 @@
 				CF77778B141B2CC100690920 /* Supporting Files */,
 				CF7777A9141B2E5A00690920 /* SESearchServiceTest.h */,
 				CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */,
+				CF66BE221422907C00C55DB9 /* SESensisSearchURLTest.h */,
+				CF66BE231422907C00C55DB9 /* SESensisSearchURLTest.m */,
 			);
 			path = "GH Tests";
 			sourceTree = "<group>";
@@ -158,6 +167,8 @@
 				CF918076141621BA0021C598 /* Supporting Files */,
 				CFFA19B914178B8E00413486 /* SESearchService.h */,
 				CFFA19BA14178B8E00413486 /* SESearchService.m */,
+				CF66BE25142291B300C55DB9 /* SESensisSearchURL.h */,
+				CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */,
 			);
 			path = SearchExample;
 			sourceTree = "<group>";
@@ -314,6 +325,8 @@
 				CF7777B8141B443600690920 /* SESearchService.m in Sources */,
 				CF777791141B2CC100690920 /* main.m in Sources */,
 				CF7777AB141B2E5A00690920 /* SESearchServiceTest.m in Sources */,
+				CF66BE241422907C00C55DB9 /* SESensisSearchURLTest.m in Sources */,
+				CF66BE28142291B300C55DB9 /* SESensisSearchURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +340,7 @@
 				CF91808B141621BB0021C598 /* SearchExampleAppDelegate_iPad.m in Sources */,
 				CFFA19BB14178B8E00413486 /* SESearchService.m in Sources */,
 				CFF70B3F1420DAFB0029BA83 /* JSONKit.m in Sources */,
+				CF66BE27142291B300C55DB9 /* SESensisSearchURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
