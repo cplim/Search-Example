@@ -18,6 +18,11 @@
 		CF7777A8141B2D0200690920 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7777A7141B2D0200690920 /* GHUnitIOS.framework */; };
 		CF7777AB141B2E5A00690920 /* SESearchServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */; };
 		CF7777B8141B443600690920 /* SESearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SESearchService.m */; };
+		CF906D84142608A5001A8FA0 /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF906D83142608A5001A8FA0 /* SearchController.m */; };
+		CF906D8A142608FD001A8FA0 /* SearchController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF906D88142608FD001A8FA0 /* SearchController_iPhone.m */; };
+		CF906D8B142608FD001A8FA0 /* SearchController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF906D89142608FD001A8FA0 /* SearchController_iPhone.xib */; };
+		CF906D8F14260929001A8FA0 /* SearchController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = CF906D8D14260929001A8FA0 /* SearchController_iPad.m */; };
+		CF906D9014260929001A8FA0 /* SearchController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF906D8E14260929001A8FA0 /* SearchController_iPad.xib */; };
 		CF918070141621BA0021C598 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF91806F141621BA0021C598 /* UIKit.framework */; };
 		CF918072141621BA0021C598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918071141621BA0021C598 /* Foundation.framework */; };
 		CF918074141621BA0021C598 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF918073141621BA0021C598 /* CoreGraphics.framework */; };
@@ -46,6 +51,14 @@
 		CF7777A7141B2D0200690920 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		CF7777A9141B2E5A00690920 /* SESearchServiceTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchServiceTest.h; sourceTree = "<group>"; };
 		CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchServiceTest.m; sourceTree = "<group>"; };
+		CF906D82142608A5001A8FA0 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
+		CF906D83142608A5001A8FA0 /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
+		CF906D87142608FD001A8FA0 /* SearchController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController_iPhone.h; sourceTree = "<group>"; };
+		CF906D88142608FD001A8FA0 /* SearchController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController_iPhone.m; sourceTree = "<group>"; };
+		CF906D89142608FD001A8FA0 /* SearchController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchController_iPhone.xib; sourceTree = "<group>"; };
+		CF906D8C14260929001A8FA0 /* SearchController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController_iPad.h; sourceTree = "<group>"; };
+		CF906D8D14260929001A8FA0 /* SearchController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController_iPad.m; sourceTree = "<group>"; };
+		CF906D8E14260929001A8FA0 /* SearchController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchController_iPad.xib; sourceTree = "<group>"; };
 		CF91806B141621BA0021C598 /* SearchExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF91806F141621BA0021C598 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CF918071141621BA0021C598 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +137,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CF906D86142608B3001A8FA0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF906D82142608A5001A8FA0 /* SearchController.h */,
+				CF906D83142608A5001A8FA0 /* SearchController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		CF918060141621B90021C598 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +184,7 @@
 				CFF70B3C1420DADC0029BA83 /* JSONKit-1.4 */,
 				CF91807E141621BA0021C598 /* SearchExampleAppDelegate.h */,
 				CF91807F141621BA0021C598 /* SearchExampleAppDelegate.m */,
+				CF906D86142608B3001A8FA0 /* Controllers */,
 				CF918081141621BA0021C598 /* iPhone */,
 				CF918088141621BB0021C598 /* iPad */,
 				CF918076141621BA0021C598 /* Supporting Files */,
@@ -190,6 +213,9 @@
 				CF918082141621BA0021C598 /* SearchExampleAppDelegate_iPhone.h */,
 				CF918083141621BA0021C598 /* SearchExampleAppDelegate_iPhone.m */,
 				CF918085141621BB0021C598 /* MainWindow_iPhone.xib */,
+				CF906D87142608FD001A8FA0 /* SearchController_iPhone.h */,
+				CF906D88142608FD001A8FA0 /* SearchController_iPhone.m */,
+				CF906D89142608FD001A8FA0 /* SearchController_iPhone.xib */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -200,6 +226,9 @@
 				CF918089141621BB0021C598 /* SearchExampleAppDelegate_iPad.h */,
 				CF91808A141621BB0021C598 /* SearchExampleAppDelegate_iPad.m */,
 				CF91808C141621BB0021C598 /* MainWindow_iPad.xib */,
+				CF906D8C14260929001A8FA0 /* SearchController_iPad.h */,
+				CF906D8D14260929001A8FA0 /* SearchController_iPad.m */,
+				CF906D8E14260929001A8FA0 /* SearchController_iPad.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -311,6 +340,8 @@
 				CF91807A141621BA0021C598 /* InfoPlist.strings in Resources */,
 				CF918087141621BB0021C598 /* MainWindow_iPhone.xib in Resources */,
 				CF91808E141621BB0021C598 /* MainWindow_iPad.xib in Resources */,
+				CF906D8B142608FD001A8FA0 /* SearchController_iPhone.xib in Resources */,
+				CF906D9014260929001A8FA0 /* SearchController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +372,9 @@
 				CFFA19BB14178B8E00413486 /* SESearchService.m in Sources */,
 				CFF70B3F1420DAFB0029BA83 /* JSONKit.m in Sources */,
 				CF66BE27142291B300C55DB9 /* SESensisSearchURL.m in Sources */,
+				CF906D84142608A5001A8FA0 /* SearchController.m in Sources */,
+				CF906D8A142608FD001A8FA0 /* SearchController_iPhone.m in Sources */,
+				CF906D8F14260929001A8FA0 /* SearchController_iPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +433,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -420,6 +455,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

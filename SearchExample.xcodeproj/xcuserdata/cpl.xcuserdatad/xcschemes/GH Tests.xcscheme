@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CF777760141B2A9D00690920"
+               BlueprintIdentifier = "CF777784141B2CC100690920"
                BuildableName = "GH Tests.app"
                BlueprintName = "GH Tests"
                ReferencedContainer = "container:SearchExample.xcodeproj">
@@ -38,7 +38,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CF777760141B2A9D00690920"
+            BlueprintIdentifier = "CF777784141B2CC100690920"
             BuildableName = "GH Tests.app"
             BlueprintName = "GH Tests"
             ReferencedContainer = "container:SearchExample.xcodeproj">
@@ -55,7 +55,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CF777760141B2A9D00690920"
+            BlueprintIdentifier = "CF777784141B2CC100690920"
             BuildableName = "GH Tests.app"
             BlueprintName = "GH Tests"
             ReferencedContainer = "container:SearchExample.xcodeproj">

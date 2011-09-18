@@ -9,5 +9,9 @@
 #import "SearchExampleAppDelegate.h"
 
 @interface SearchExampleAppDelegate_iPhone : SearchExampleAppDelegate
+{
+    IBOutlet UINavigationController* navigationController;
+}
 
+@property (nonatomic, retain) IBOutlet UINavigationController* navigationController;
 @end
