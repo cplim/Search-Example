@@ -11,11 +11,12 @@
 @implementation SearchExampleAppDelegate
 
 @synthesize window = _window;
+@synthesize navigationController = navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-//    [self.window makeKeyAndVisible];
+    [self.window addSubview:navigationController.view];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

@@ -7,3 +7,4 @@
 # http://blog.xebia.com/2011/03/ios-xcode-4-ghunit-mobile-tddcontinuous-testing-part-2-of-n/
 # http://www.kotancode.com/2011/04/05/ios-universal-apps/
 # http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007457-CH1-SW1
+# http://mithin.in/2009/06/22/using-iphone-sdk-mapkit-framework-a-tutorial
