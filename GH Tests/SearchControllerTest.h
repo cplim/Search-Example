@@ -15,5 +15,5 @@
     SearchController* searchController;
     id mockSearchService;
 }
-
+-(void)testShouldDelegateToSearchServiceWhenSearchIsInvoked;
 @end

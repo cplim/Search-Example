@@ -9,35 +9,12 @@
 #import <OCMock/OCMock.h>
 #import "SearchControllerTest.h"
 
-//@interface SearchController(private)
-//-(id)initWithSearchService:(SESearchService*)searchService;
-//@end
-//
-//@implementation SearchController(private)
-//-(id)initWithSearchService:(SESearchService*)searchService
-//{
-//    self = [super initWithNibName:nil bundle:nil];
-//    if (self) {
-//        _searchService = [searchService retain];
-//    }
-//    return self;
-//
-//}
-//
-//- (void)dealloc
-//{
-//    [_searchService release];
-//    [super release];
-//}
-//@end
-
 @implementation SearchControllerTest
 
 - (void) setUp
 {
     mockSearchService = [OCMockObject mockForClass:[SESearchService class]];
-//    _searchController = [[SearchController alloc] initWithSearchService:_mockSearchService];
-    NSBundle* bundle = [[NSBundle alloc] init];
+    id bundle = [OCMockObject mockForClass:[NSBundle class]];
     
     searchController = [[SearchController alloc] initWithNibName:nil bundle:bundle];
     searchController.searchService = mockSearchService;
@@ -52,15 +29,19 @@
 {
     id mockDelegate = [OCMockObject mockForClass:[NSObject class]];
     [[mockSearchService expect] searchBy:[OCMArg any] delegate:mockDelegate];
-    id whatField = [OCMockObject mockForClass:[UITextField class]];
-    [[[whatField stub] andReturn:@"what"] text];
-    id whereField = [OCMockObject mockForClass:[UITextField class]];
-    [[[whereField stub] andReturn:@"where"] text];
+    id mockWhatField = [OCMockObject mockForClass:[UITextField class]];
+    [[[mockWhatField expect] andReturn:@"what"] text];
+    id mockWhereField = [OCMockObject mockForClass:[UITextField class]];
+    [[[mockWhereField expect] andReturn:@"where"] text];
     
-    searchController.whatField = whatField;
-    searchController.whereField = whereField;
+    searchController.whatField = mockWhatField;
+    searchController.whereField = mockWhereField;
     
     [searchController search:nil];
+    
+    [mockWhatField verify];
+    [mockWhereField verify];
+    [mockSearchService verify];
 }
 
 

@@ -448,7 +448,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries";
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-force_load",
+					"-all_load",
 					"$(PROJECT_DIR)/Libraries/libOCMock.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,7 +474,7 @@
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries";
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-force_load",
+					"-all_load",
 					"$(PROJECT_DIR)/Libraries/libOCMock.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -26,6 +26,8 @@
 -(IBAction)search:(id)sender
 {
     NSLog(@"what: %@, where: %@", [whatField text], [whereField text]);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
