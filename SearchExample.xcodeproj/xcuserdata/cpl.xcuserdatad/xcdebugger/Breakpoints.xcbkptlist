@@ -143,11 +143,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "GH Tests/SESearchServiceTest.m"
-         timestampString = "337811806.293143"
+         timestampString = "338643099.188729"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,6 +163,48 @@
          startingLineNumber = "66"
          endingLineNumber = "66"
          landmarkName = "-asQueryUrl"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "GH Tests/SearchControllerTest.m"
+         timestampString = "338298872.878981"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-testShouldDelegateToSearchServiceWhenSearchIsInvoked"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "GH Tests/SearchControllerTest.m"
+         timestampString = "338298869.672203"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-setUp"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "GH Tests/SearchControllerTest.m"
+         timestampString = "338298944.996858"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "-setUp"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

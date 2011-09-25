@@ -44,6 +44,7 @@
     
     if([_data length] > 0) {
         NSDictionary* json = [[JSONDecoder decoder] objectWithData:_data];
+        GHAssertNotNil(json, @"returned JSON should not be nil");
 //        GHTestLog([json objectForKey:@"time"]);
     }
     
