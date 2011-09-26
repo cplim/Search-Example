@@ -14,6 +14,7 @@
     IBOutlet UITextField* whatField;
     IBOutlet UITextField* whereField;
     SESearchService* searchService;
+    NSString* apiKey;
 }
 
 -(IBAction)search:(id)sender;

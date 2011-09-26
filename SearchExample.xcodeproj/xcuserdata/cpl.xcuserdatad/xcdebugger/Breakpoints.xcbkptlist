@@ -142,20 +142,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "GH Tests/SESearchServiceTest.m"
-         timestampString = "338643099.188729"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-connectionDidFinishLoading:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "SearchExample/SESensisSearchURL.m"
          timestampString = "337811806.293143"
          startingColumnNumber = "9223372036854775807"
@@ -176,7 +162,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "41"
          endingLineNumber = "41"
-         landmarkName = "-setUp"
+         landmarkName = "-testShouldDelegateToSearchServiceWhenSearchIsInvoked"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -190,7 +176,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "38"
          endingLineNumber = "38"
-         landmarkName = "-setUp"
+         landmarkName = "-testShouldDelegateToSearchServiceWhenSearchIsInvoked"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

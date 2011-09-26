@@ -14,20 +14,27 @@
 @synthesize whereField;
 @synthesize searchService;
 
+static NSString * const APP_PROPERTY_FILE = @"Config.plist";
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSString* path = [[NSBundle mainBundle] bundlePath];
+        NSString* realPath = [path stringByAppendingPathComponent:APP_PROPERTY_FILE];
+        NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile:realPath];
+        apiKey = [dictionary valueForKey:@"Sensis Search API Key"];
     }
     return self;
 }
 
 -(IBAction)search:(id)sender
 {
-    NSLog(@"what: %@, where: %@", [whatField text], [whereField text]);
-    
-    
+    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:apiKey];
+    [searchUrl searchFor:[whatField text]];
+    [searchUrl at:[whereField text]];
+    [searchService searchBy:searchUrl delegate:nil];
 }
 
 - (void)didReceiveMemoryWarning

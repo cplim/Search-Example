@@ -34,7 +34,7 @@
     
     [_searchService searchBy:sensisSearchURL delegate:self];
     
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:10.0];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -45,7 +45,6 @@
     if([_data length] > 0) {
         NSDictionary* json = [[JSONDecoder decoder] objectWithData:_data];
         GHAssertNotNil(json, @"returned JSON should not be nil");
-//        GHTestLog([json objectForKey:@"time"]);
     }
     
     [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldReturnResultsWhenSearchIsInvoked)];

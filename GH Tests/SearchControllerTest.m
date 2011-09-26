@@ -27,8 +27,8 @@
 
 - (void)testShouldDelegateToSearchServiceWhenSearchIsInvoked
 {
-    id mockDelegate = [OCMockObject mockForClass:[NSObject class]];
-    [[mockSearchService expect] searchBy:[OCMArg any] delegate:mockDelegate];
+//    id mockDelegate = [OCMockObject mockForClass:[NSObject class]];
+    [[mockSearchService expect] searchBy:[OCMArg isNotNil] delegate:nil];
     id mockWhatField = [OCMockObject mockForClass:[UITextField class]];
     [[[mockWhatField expect] andReturn:@"what"] text];
     id mockWhereField = [OCMockObject mockForClass:[UITextField class]];

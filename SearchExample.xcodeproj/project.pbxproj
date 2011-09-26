@@ -35,6 +35,8 @@
 		CF918087141621BB0021C598 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF918085141621BB0021C598 /* MainWindow_iPhone.xib */; };
 		CF91808B141621BB0021C598 /* SearchExampleAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = CF91808A141621BB0021C598 /* SearchExampleAppDelegate_iPad.m */; };
 		CF91808E141621BB0021C598 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF91808C141621BB0021C598 /* MainWindow_iPad.xib */; };
+		CFDE80401430A4DF0073BAC4 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE803F1430A4DF0073BAC4 /* Config.plist */; };
+		CFDE80411430A4DF0073BAC4 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE803F1430A4DF0073BAC4 /* Config.plist */; };
 		CFF70B3F1420DAFB0029BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF70B3E1420DAFB0029BA83 /* JSONKit.m */; };
 		CFF70B401420DDE80029BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF70B3E1420DAFB0029BA83 /* JSONKit.m */; };
 		CFFA19BB14178B8E00413486 /* SESearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SESearchService.m */; };
@@ -87,6 +89,7 @@
 		CFC085EC1419EF8E009E5DD9 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
 		CFC085ED1419EF8E009E5DD9 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		CFC085EE1419EF8E009E5DD9 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		CFDE803F1430A4DF0073BAC4 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		CFF70B3D1420DAFB0029BA83 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		CFF70B3E1420DAFB0029BA83 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		CFFA19B914178B8E00413486 /* SESearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchService.h; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 				CFFA19BA14178B8E00413486 /* SESearchService.m */,
 				CF66BE25142291B300C55DB9 /* SESensisSearchURL.h */,
 				CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */,
+				CFDE803F1430A4DF0073BAC4 /* Config.plist */,
 			);
 			path = SearchExample;
 			sourceTree = "<group>";
@@ -344,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF77778F141B2CC100690920 /* InfoPlist.strings in Resources */,
+				CFDE80411430A4DF0073BAC4 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +361,7 @@
 				CF91808E141621BB0021C598 /* MainWindow_iPad.xib in Resources */,
 				CF906D8B142608FD001A8FA0 /* SearchController_iPhone.xib in Resources */,
 				CF906D9014260929001A8FA0 /* SearchController_iPad.xib in Resources */,
+				CFDE80401430A4DF0073BAC4 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
