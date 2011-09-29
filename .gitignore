@@ -1,2 +1,3 @@
 .DS_Store
-SearchExample.xcodeproj/project.xcworkspace/xcuserdata/*
+SearchExample.xcodeproj/project.xcworkspace
+SearchExample.xcodeproj/xcuserdata
