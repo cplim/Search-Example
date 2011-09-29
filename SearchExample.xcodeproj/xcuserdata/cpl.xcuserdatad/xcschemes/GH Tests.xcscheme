@@ -14,8 +14,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CF777784141B2CC100690920"
-               BuildableName = "GH Tests.app"
-               BlueprintName = "GH Tests"
+               BuildableName = "GHTests.app"
+               BlueprintName = "GHTests"
                ReferencedContainer = "container:SearchExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -39,8 +39,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF777784141B2CC100690920"
-            BuildableName = "GH Tests.app"
-            BlueprintName = "GH Tests"
+            BuildableName = "GHTests.app"
+            BlueprintName = "GHTests"
             ReferencedContainer = "container:SearchExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF777784141B2CC100690920"
-            BuildableName = "GH Tests.app"
-            BlueprintName = "GH Tests"
+            BuildableName = "GHTests.app"
+            BlueprintName = "GHTests"
             ReferencedContainer = "container:SearchExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
