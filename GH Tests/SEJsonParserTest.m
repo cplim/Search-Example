@@ -16,12 +16,12 @@
 {
     [super setUp];
     mockCallback = [OCMockObject mockForProtocol:@protocol(SEJsonCallback)];
-    jsonSearchResultsParser = [[SEJsonParser alloc] initWithCallback:mockCallback];
+    jsonParser = [[SEJsonParser alloc] initWithCallback:mockCallback];
 }
 
 -(void)tearDown
 {
-    [jsonSearchResultsParser release];
+    [jsonParser release];
     [super tearDown];
 }
 
@@ -36,8 +36,8 @@
     }]];
     NSString* jsonString = @"{ \"key\":\"value\" }";
     
-    [jsonSearchResultsParser connection:nil didReceiveData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
-    [jsonSearchResultsParser connectionDidFinishLoading:nil];
+    [jsonParser connection:nil didReceiveData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    [jsonParser connectionDidFinishLoading:nil];
     
     [mockCallback verify];
 }
@@ -46,7 +46,7 @@
 {
     [[mockCallback expect] onFailure:[OCMArg any]];
 
-    [jsonSearchResultsParser connection:nil didFailWithError:nil];
+    [jsonParser connection:nil didFailWithError:nil];
     
     [mockCallback verify];
 }

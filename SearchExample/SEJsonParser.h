@@ -11,10 +11,10 @@
 
 @interface SEJsonParser : NSObject
 {
-    NSObject<SEJsonCallback>* callback;
+    id<SEJsonCallback> callback;
     NSMutableData* jsonData;
 }
 
-- (SEJsonParser*)initWithCallback:(NSObject<SEJsonCallback>*)callback;
+- (id)initWithCallback:(id<SEJsonCallback>)callback;
 
 @end

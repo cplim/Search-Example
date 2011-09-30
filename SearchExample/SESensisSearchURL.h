@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SEQueryURL.h"
 
-@interface SESensisSearchURL : NSObject {
+@interface SESensisSearchURL : NSObject<SEQueryURL> {
     NSString* _apiKey;
     NSString* _what;
     NSString* _where;

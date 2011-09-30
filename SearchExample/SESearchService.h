@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SESensisSearchURL.h"
+#import "SEQueryURL.h"
 
 @interface SESearchService : NSObject 
-- (void) searchBy:(SESensisSearchURL*)search delegate:(id)delegate;
+- (void) searchBy:(id<SEQueryURL>)search delegate:(id)delegate;
 @end

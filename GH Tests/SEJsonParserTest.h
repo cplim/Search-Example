@@ -11,7 +11,7 @@
 
 @interface SEJsonParserTest : GHTestCase
 {
-    SEJsonParser* jsonSearchResultsParser;
+    SEJsonParser* jsonParser;
     id mockCallback;
 }
 

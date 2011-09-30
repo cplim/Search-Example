@@ -7,6 +7,7 @@
 //
 
 #import "SearchController.h"
+#import "SESensisSearchURL.h"
 
 @implementation SearchController
 

@@ -28,7 +28,7 @@
     [super dealloc];
 }
 
-- (void) searchBy:(SESensisSearchURL *)search delegate:(id)delegate
+- (void) searchBy:(id<SEQueryURL>)search delegate:(id)delegate
 {
     NSString* query = [search asQueryUrl];
     NSURL* queryUrl = [NSURL URLWithString:query];

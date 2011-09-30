@@ -23,7 +23,7 @@
     [super dealloc];
 }
 
-- (SEJsonParser*)initWithCallback:(NSObject<SEJsonCallback>*)callbackArgument
+- (id)initWithCallback:(id<SEJsonCallback>)callbackArgument
 {
     self = [super init];
     if (self) {
