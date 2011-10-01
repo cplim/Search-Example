@@ -14,7 +14,7 @@
     id<SEJsonCallback> callback;
     NSMutableData* jsonData;
 }
-
++ (id)jsonParserWithCallback:(id<SEJsonCallback>)callback;
 - (id)initWithCallback:(id<SEJsonCallback>)callback;
 
 @end

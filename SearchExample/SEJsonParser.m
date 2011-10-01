@@ -10,6 +10,11 @@
 #import "JSONKit.h"
 
 @implementation SEJsonParser
++ (id)jsonParserWithCallback:(id<SEJsonCallback>)callback
+{
+    SEJsonParser* jsonParser = [[SEJsonParser alloc] initWithCallback:callback];
+    return [jsonParser autorelease];
+}
 
 - (id)init
 {
@@ -18,7 +23,7 @@
 
 - (void)dealloc
 {
-    [callback release];
+    callback = nil;
     [jsonData release];
     [super dealloc];
 }
@@ -27,7 +32,7 @@
 {
     self = [super init];
     if (self) {
-        callback = [callbackArgument retain];
+        callback = callbackArgument;
         jsonData = [[NSMutableData alloc] init];
     }
     
