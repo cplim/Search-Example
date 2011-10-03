@@ -8,10 +8,6 @@
 
 #import "SESearchService.h"
 
-@interface SESearchService (private)
-- (NSString*) queryUrl:(NSString*)what location:(NSString*)where;
-@end
-
 @implementation SESearchService
 
 - (id) init 
