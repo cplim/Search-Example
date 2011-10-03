@@ -9,25 +9,29 @@
 #import "SearchController.h"
 #import "SESensisSearchURL.h"
 
+static NSString * const APP_PROPERTY_FILE = @"Config.plist";
+
 @implementation SearchController
 
 @synthesize whatField;
 @synthesize whereField;
-@synthesize searchService;
-
-static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSString* path = [[NSBundle mainBundle] bundlePath];
-        NSString* realPath = [path stringByAppendingPathComponent:APP_PROPERTY_FILE];
-        NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile:realPath];
-        apiKey = [dictionary valueForKey:@"Sensis Search API Key"];
     }
     return self;
+}
+
+- (void) dealloc
+{
+    [whatField release];
+    [whereField release];
+    [apiKey release];
+    [searchService release];
+    [super dealloc];
 }
 
 -(IBAction)search:(id)sender
@@ -54,13 +58,26 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // apiKey
+    if(apiKey == nil)
+    {
+        NSString* path = [[NSBundle mainBundle] bundlePath];
+        NSString* realPath = [path stringByAppendingPathComponent:APP_PROPERTY_FILE];
+        NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile:realPath];
+        self.apiKey = [[dictionary valueForKey:@"Sensis Search API Key"] retain];
+    }
+    
+    // search service
+    if(searchService == nil)
+    {
+        self.searchService = [[SESearchService alloc] init];
+    }
 }
-*/
 
 - (void)viewDidUnload
 {
