@@ -49,9 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF0DA49A1435ECA70045885A /* SESensisResultsSummaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SESensisResultsSummaryTest.h; sourceTree = "<group>"; };
+		CF0DA49A1435ECA70045885A /* SESensisResultsSummaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisResultsSummaryTest.h; sourceTree = "<group>"; };
 		CF0DA49B1435ECA70045885A /* SESensisResultsSummaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisResultsSummaryTest.m; sourceTree = "<group>"; };
-		CF0DA49E1435ECEF0045885A /* SESensisResultsSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SESensisResultsSummary.h; sourceTree = "<group>"; };
+		CF0DA49E1435ECEF0045885A /* SESensisResultsSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisResultsSummary.h; sourceTree = "<group>"; };
 		CF0DA49F1435ECEF0045885A /* SESensisResultsSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisResultsSummary.m; sourceTree = "<group>"; };
 		CF0DA4A71435FF3E0045885A /* SEQueryURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEQueryURL.h; sourceTree = "<group>"; };
 		CF66BE221422907C00C55DB9 /* SESensisSearchURLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisSearchURLTest.h; sourceTree = "<group>"; };
@@ -607,6 +607,7 @@
 				GCC_PREFIX_HEADER = "SearchExample/SearchExample-Prefix.pch";
 				INFOPLIST_FILE = "SearchExample/SearchExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -618,6 +619,7 @@
 				GCC_PREFIX_HEADER = "SearchExample/SearchExample-Prefix.pch";
 				INFOPLIST_FILE = "SearchExample/SearchExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
