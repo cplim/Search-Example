@@ -10,26 +10,22 @@
 #import "JSONKit.h"
 
 @implementation SEJsonParser
-+ (id)jsonParserWithCallback:(id<SEJsonCallback>)callback
-{
++ (id) jsonParserWithCallback:(id<SEJsonCallback>)callback {
     SEJsonParser* jsonParser = [[SEJsonParser alloc] initWithCallback:callback];
     return [jsonParser autorelease];
 }
 
-- (id)init
-{
+- (id) init {
     return [self initWithCallback:nil];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     callback = nil;
     [jsonData release];
     [super dealloc];
 }
 
-- (id)initWithCallback:(id<SEJsonCallback>)callbackArgument
-{
+- (id) initWithCallback:(id<SEJsonCallback>)callbackArgument {
     self = [super init];
     if (self) {
         callback = callbackArgument;
@@ -39,16 +35,16 @@
     return self;
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
     NSDictionary* json = [jsonData objectFromJSONData];
     [callback onSuccess:json];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [callback onFailure:error];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [jsonData appendData:data];
 }
 @end

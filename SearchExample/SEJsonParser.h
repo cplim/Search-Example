@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SEJsonCallback.h"
 
-@interface SEJsonParser : NSObject
-{
+@interface SEJsonParser : NSObject {
     id<SEJsonCallback> callback;
     NSMutableData* jsonData;
 }
-+ (id)jsonParserWithCallback:(id<SEJsonCallback>)callback;
-- (id)initWithCallback:(id<SEJsonCallback>)callback;
++ (id) jsonParserWithCallback:(id<SEJsonCallback>)callback;
+- (id) initWithCallback:(id<SEJsonCallback>)callback;
 
 @end
