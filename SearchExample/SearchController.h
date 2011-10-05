@@ -21,5 +21,7 @@
 
 @property (nonatomic, retain) IBOutlet UITextField* whatField;
 @property (nonatomic, retain) IBOutlet UITextField* whereField;
+@property (nonatomic, retain) SESearchService* searchService;
+@property (nonatomic, retain) NSString* apiKey;
 
 @end

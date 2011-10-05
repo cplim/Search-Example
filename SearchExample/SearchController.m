@@ -15,6 +15,9 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 
 @synthesize whatField;
 @synthesize whereField;
+@synthesize searchService;
+@synthesize apiKey;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
