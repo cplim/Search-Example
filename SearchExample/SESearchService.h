@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "SEQueryURL.h"
 
-@interface SESearchService : NSObject 
-- (void) searchBy:(id<SEQueryURL>)search delegate:(id)delegate;
+@interface SESearchService : NSObject {
+    BOOL completed;
+    int completedStatus;
+    NSMutableData* data;
+}
+- (void)searchBy:(id<SEQueryURL>)search delegate:(id)delegate;
+- (void)searchBy:(id<SEQueryURL>)search;
+
+@property (nonatomic) BOOL completed;
+@property (nonatomic) int completedStatus;
+@property (readonly) NSData* data;
+
 @end

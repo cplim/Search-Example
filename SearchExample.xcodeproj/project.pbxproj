@@ -41,6 +41,9 @@
 		CFA74CE514348FDB0025F2D0 /* SEJsonParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA74CE414348FDB0025F2D0 /* SEJsonParserTest.m */; };
 		CFA74CE8143490050025F2D0 /* SEJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA74CE7143490050025F2D0 /* SEJsonParser.m */; };
 		CFA74CE9143490050025F2D0 /* SEJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA74CE7143490050025F2D0 /* SEJsonParser.m */; };
+		CFAE11C4143C7453009DA61E /* SESearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE11C3143C7453009DA61E /* SESearchResultsController.m */; };
+		CFAE11C5143C7453009DA61E /* SESearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE11C3143C7453009DA61E /* SESearchResultsController.m */; };
+		CFAE11C9143C7489009DA61E /* SESearchResultsControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE11C8143C7489009DA61E /* SESearchResultsControllerTest.m */; };
 		CFDE80401430A4DF0073BAC4 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE803F1430A4DF0073BAC4 /* Config.plist */; };
 		CFDE80411430A4DF0073BAC4 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFDE803F1430A4DF0073BAC4 /* Config.plist */; };
 		CFF70B3F1420DAFB0029BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF70B3E1420DAFB0029BA83 /* JSONKit.m */; };
@@ -98,6 +101,10 @@
 		CFA74CE6143490050025F2D0 /* SEJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEJsonParser.h; sourceTree = "<group>"; };
 		CFA74CE7143490050025F2D0 /* SEJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEJsonParser.m; sourceTree = "<group>"; };
 		CFA74CEA1434921B0025F2D0 /* SEJsonCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEJsonCallback.h; sourceTree = "<group>"; };
+		CFAE11C2143C7453009DA61E /* SESearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchResultsController.h; sourceTree = "<group>"; };
+		CFAE11C3143C7453009DA61E /* SESearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchResultsController.m; sourceTree = "<group>"; };
+		CFAE11C7143C7489009DA61E /* SESearchResultsControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchResultsControllerTest.h; sourceTree = "<group>"; };
+		CFAE11C8143C7489009DA61E /* SESearchResultsControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchResultsControllerTest.m; sourceTree = "<group>"; };
 		CFC085E71419EF8E009E5DD9 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		CFC085E91419EF8E009E5DD9 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		CFC085EA1419EF8E009E5DD9 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -190,6 +197,8 @@
 			children = (
 				CF6AB8E71428B90300A67940 /* SearchControllerTest.h */,
 				CF6AB8E81428B90300A67940 /* SearchControllerTest.m */,
+				CFAE11C7143C7489009DA61E /* SESearchResultsControllerTest.h */,
+				CFAE11C8143C7489009DA61E /* SESearchResultsControllerTest.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +230,8 @@
 			children = (
 				CF906D82142608A5001A8FA0 /* SearchController.h */,
 				CF906D83142608A5001A8FA0 /* SearchController.m */,
+				CFAE11C2143C7453009DA61E /* SESearchResultsController.h */,
+				CFAE11C3143C7453009DA61E /* SESearchResultsController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -443,6 +454,8 @@
 				CFA74CE9143490050025F2D0 /* SEJsonParser.m in Sources */,
 				CF0DA49C1435ECA70045885A /* SESensisResultsSummaryTest.m in Sources */,
 				CF0DA4A11435ECEF0045885A /* SESensisResultsSummary.m in Sources */,
+				CFAE11C5143C7453009DA61E /* SESearchResultsController.m in Sources */,
+				CFAE11C9143C7489009DA61E /* SESearchResultsControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +475,7 @@
 				CF906D8F14260929001A8FA0 /* SearchController_iPad.m in Sources */,
 				CFA74CE8143490050025F2D0 /* SEJsonParser.m in Sources */,
 				CF0DA4A01435ECEF0045885A /* SESensisResultsSummary.m in Sources */,
+				CFAE11C4143C7453009DA61E /* SESearchResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

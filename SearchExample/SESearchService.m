@@ -10,10 +10,17 @@
 
 @implementation SESearchService
 
+@synthesize completed;
+@synthesize completedStatus;
+@synthesize data;
+
 - (id) init 
 {
     self = [super init];
     if (self) {
+        completed = NO;
+        completedStatus = 0;
+        data = [[NSMutableData alloc] init];
     }
     
     return self;
@@ -21,7 +28,12 @@
 
 - (void) dealloc
 {
+    [data release];
     [super dealloc];
+}
+
+- (void)searchBy:(id<SEQueryURL>)search {
+    
 }
 
 - (void) searchBy:(id<SEQueryURL>)search delegate:(id)delegate
