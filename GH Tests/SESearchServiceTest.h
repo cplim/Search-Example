@@ -11,9 +11,9 @@
 
 @interface SESearchServiceTest : GHAsyncTestCase {
     SESearchService* _searchService;
-    NSMutableData* _data;
 }
-- (void)testShouldReturnResultsWhenSearchIsInvoked;
+- (void)testShouldCallSuccessBlockOnSuccess;
+- (void)testShouldCallFailureBlockOnFailure;
 
 @end
 

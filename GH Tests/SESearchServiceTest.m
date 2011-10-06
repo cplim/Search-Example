@@ -11,60 +11,60 @@
 #import "SESearchServiceTest.h"
 #import "SESensisSearchURL.h"
 
+@interface FailureUrl : NSObject<SEQueryURL> 
+@end
+
+@implementation FailureUrl
+
+-(NSString*) asQueryUrl {
+    return @"http://some-url-that-does-not-exist.com";
+}
+
+@end
+
 @implementation SESearchServiceTest
 
 - (void)setUpClass
 {
     _searchService = [[SESearchService alloc] init];
-    _data = nil;
 }
 
 - (void)tearDownClass
 {
     [_searchService release];
-    if(_data != nil) {
-        [_data release];
-    }
 }
 
-- (void)testShouldReturnResultsWhenSearchIsInvoked {
+- (void)testShouldCallSuccessBlockOnSuccess {
+    __block BOOL successBlockInvoked = NO;
+    _searchService.successCallback = ^(NSData* data) {
+        successBlockInvoked = YES;
+        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldCallSuccessBlockOnSuccess)];
+    };
+    
     [self prepare];
-    
-    SESensisSearchURL* sensisSearchURL = [SESensisSearchURL sensisSearchURLWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
-    
-    [_searchService searchBy:sensisSearchURL delegate:self];
+    SESensisSearchURL* url = [SESensisSearchURL sensisSearchURLWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
+    [_searchService searchBy:url];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // Notify of success, specifying the method where wait is called.
-    // This prevents stray notifies from affecting other tests.
-    GHTestLog(@"Finished loading!");
     
-    if([_data length] > 0) {
-        NSDictionary* json = [[JSONDecoder decoder] objectWithData:_data];
-        GHAssertNotNil(json, @"returned JSON should not be nil");
-    }
+    GHAssertTrue(successBlockInvoked, @"Success block was not invoked");
+}
+
+- (void)testShouldCallFailureBlockOnFailure {
+    __block BOOL failureBlockInvoked = NO;
+    _searchService.failureCallback = ^(NSError* error) {
+        failureBlockInvoked = YES;
+        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldCallFailureBlockOnFailure)];
+    };
     
-    [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldReturnResultsWhenSearchIsInvoked)];
+    [self prepare];
+    FailureUrl* url = [[FailureUrl alloc] init];
+    [_searchService searchBy:url];
+    [url release];
+    
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
+    
+    GHAssertTrue(failureBlockInvoked, @"Failure block was not invoked");
 }
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // Notify of connection failure
-    GHTestLog(@"Failed loading");
-    [self notify:kGHUnitWaitStatusFailure forSelector:@selector(testURLConnection)];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    //GHTestLog(@"%@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
-    GHTestLog(@"Called didReceiveData");
-    if(_data == nil) {
-        _data = [[NSMutableData alloc] initWithData:data];
-    }
-    else {
-        [_data appendData:data];
-    }
-} 
 
 @end

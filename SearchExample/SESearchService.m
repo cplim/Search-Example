@@ -13,6 +13,8 @@
 @synthesize completed;
 @synthesize completedStatus;
 @synthesize data;
+@synthesize successCallback;
+@synthesize failureCallback;
 
 - (id) init 
 {
@@ -29,11 +31,13 @@
 - (void) dealloc
 {
     [data release];
+    [successCallback release];
+    [failureCallback release];
     [super dealloc];
 }
 
 - (void)searchBy:(id<SEQueryURL>)search {
-    
+    [self searchBy:search delegate:self];
 }
 
 - (void) searchBy:(id<SEQueryURL>)search delegate:(id)delegate
@@ -46,6 +50,18 @@
     
     [queryConnection release];
     [requestUrl release];
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
+    successCallback(data);
+}
+
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    failureCallback(error);
+}
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)receivedData {
+    [self.data appendData:receivedData];
 }
 
 @end

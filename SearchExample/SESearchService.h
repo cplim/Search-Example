@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SEQueryURL.h"
 
+typedef void (^SearchSuccessCallback)(NSData*);
+typedef void (^SearchFailureCallback)(NSError*);
+
 @interface SESearchService : NSObject {
-    BOOL completed;
-    int completedStatus;
     NSMutableData* data;
 }
 - (void)searchBy:(id<SEQueryURL>)search delegate:(id)delegate;
@@ -19,6 +20,8 @@
 
 @property (nonatomic) BOOL completed;
 @property (nonatomic) int completedStatus;
-@property (readonly) NSData* data;
+@property (nonatomic, retain) NSMutableData* data;
+@property (nonatomic, copy) SearchSuccessCallback successCallback;
+@property (nonatomic, copy) SearchFailureCallback failureCallback;
 
 @end

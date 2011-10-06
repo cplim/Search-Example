@@ -10,13 +10,18 @@
 #import "SESearchResultsControllerTest.h"
 
 //@interface SESearchService(stubbed)
-//- (void)searchBy:(id<SEQueryURL>)search;
+//- (void)useSuccess:(BOOL)successFlag;
 //@end
 //
 @implementation SESearchService(stubbed)
 
 - (void)searchBy:(id<SEQueryURL>)search {
-//    self.completed = YES;
+    if (self.successCallback != nil) {
+        self.successCallback(self.data);
+    }
+    if (self.failureCallback != nil) {
+        self.failureCallback(nil);
+    }
 }
 
 @end
@@ -39,6 +44,7 @@
 - (void)testShouldPerformSearchAndDelegateResponseToController {
     id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
     [[mockTableView expect] reloadData];
+    
     searchResultsController.tableView = mockTableView;
     
     searchResultsController.searchTerm = @"searchTerm";
@@ -46,7 +52,7 @@
     searchResultsController.apiKey = @"apiKey";
     
     [searchResultsController search];
-    searchService.completed = YES;
+//    searchService.completed = YES;
     
     [mockTableView verify];
 }
