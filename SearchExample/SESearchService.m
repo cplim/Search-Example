@@ -53,10 +53,14 @@
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {
+    self.completed = YES;
+    self.completedStatus = 200;
     successCallback(data);
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    self.completed = YES;
+    self.completedStatus = 500;
     failureCallback(error);
 }
 

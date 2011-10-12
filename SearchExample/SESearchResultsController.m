@@ -16,12 +16,12 @@
 @synthesize locationTerm;
 @synthesize apiKey;
 @synthesize searchService;
+@synthesize searchResults;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -38,6 +38,10 @@
     SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:apiKey];
     [[searchUrl searchFor:searchTerm] at:locationTerm];
     [searchService searchBy:searchUrl];
+//    searchService.successCallback = ^(NSData* data) {
+//        searchResults = [data objectFromJSONData];
+//        [self.tableView reloadData];
+//    };
     [searchService addObserver:self forKeyPath:@"completed" options:0 context:@"completedDownload"];
 }
 
@@ -46,7 +50,7 @@
         [keyPath isEqualToString:@"completed"] && 
         [object completed]) {
         NSDictionary* json = [[object data] objectFromJSONData];
-        [[self view] reloadData];
+        [self.tableView reloadData];
     }
 }
 

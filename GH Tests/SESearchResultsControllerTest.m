@@ -7,24 +7,25 @@
 //
 
 #import <OCMock/OCMock.h>
+#import <GHUnitIOS/GHUnit.h> 
 #import "SESearchResultsControllerTest.h"
 
 //@interface SESearchService(stubbed)
 //- (void)useSuccess:(BOOL)successFlag;
 //@end
 //
-@implementation SESearchService(stubbed)
-
-- (void)searchBy:(id<SEQueryURL>)search {
-    if (self.successCallback != nil) {
-        self.successCallback(self.data);
-    }
-    if (self.failureCallback != nil) {
-        self.failureCallback(nil);
-    }
-}
-
-@end
+//@implementation SESearchService(stubbed)
+//
+//- (void)searchBy:(id<SEQueryURL>)search {
+//    if (self.successCallback != nil) {
+//        self.successCallback(self.data);
+//    }
+//    if (self.failureCallback != nil) {
+//        self.failureCallback(nil);
+//    }
+//}
+//
+//@end
 
 @implementation SESearchResultsControllerTest
 
@@ -42,19 +43,25 @@
 }
 
 - (void)testShouldPerformSearchAndDelegateResponseToController {
-    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
-    [[mockTableView expect] reloadData];
+//    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
+//    [[mockTableView expect] reloadData];
+//    
+//    searchResultsController.tableView = mockTableView;
     
-    searchResultsController.tableView = mockTableView;
+    searchService.successCallback = ^(NSData* data) {
+        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldPerformSearchAndDelegateResponseToController)];
+    };
+    [self prepare];
     
     searchResultsController.searchTerm = @"searchTerm";
     searchResultsController.locationTerm = @"locationTerm";
     searchResultsController.apiKey = @"apiKey";
     
     [searchResultsController search];
-//    searchService.completed = YES;
     
-    [mockTableView verify];
+    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
+//    
+//    [mockTableView verify];
 }
 
 @end

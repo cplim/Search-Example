@@ -14,6 +14,7 @@
     NSString* locationTerm;
     NSString* apiKey;
     SESearchService* searchService;
+    NSDictionary* searchResults;
 }
 
 - (void)search;
@@ -22,5 +23,6 @@
 @property (nonatomic, retain) NSString* locationTerm;
 @property (nonatomic, retain) NSString* apiKey;
 @property (nonatomic, retain) SESearchService* searchService;
+@property (nonatomic, retain) NSDictionary* searchResults;
 
 @end

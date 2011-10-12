@@ -10,7 +10,7 @@
 #import "SESearchResultsController.h"
 #import "SESearchService.h"
 
-@interface SESearchResultsControllerTest : GHTestCase {
+@interface SESearchResultsControllerTest : GHAsyncTestCase {
     SESearchResultsController* searchResultsController;
     SESearchService* searchService;
 }
