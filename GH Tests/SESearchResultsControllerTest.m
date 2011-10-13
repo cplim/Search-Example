@@ -7,61 +7,18 @@
 //
 
 #import <OCMock/OCMock.h>
-#import <GHUnitIOS/GHUnit.h> 
 #import "SESearchResultsControllerTest.h"
-
-//@interface SESearchService(stubbed)
-//- (void)useSuccess:(BOOL)successFlag;
-//@end
-//
-//@implementation SESearchService(stubbed)
-//
-//- (void)searchBy:(id<SEQueryURL>)search {
-//    if (self.successCallback != nil) {
-//        self.successCallback(self.data);
-//    }
-//    if (self.failureCallback != nil) {
-//        self.failureCallback(nil);
-//    }
-//}
-//
-//@end
+#import "SESearchResults.h"
 
 @implementation SESearchResultsControllerTest
 
-- (void)setUp {
-    [super setUp];
-    searchResultsController = [[SESearchResultsController alloc] init];
-    searchService = [[SESearchService alloc] init];
-    searchResultsController.searchService = searchService;
-}
-
-- (void)tearDown {
-    [searchResultsController release];
-    [searchService release];
-    [super tearDown];
-}
-
-- (void)testShouldPerformSearchAndDelegateResponseToController {
-//    id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
-//    [[mockTableView expect] reloadData];
-//    
-//    searchResultsController.tableView = mockTableView;
+- (void)testShouldReturnTotalNumberOfRowsInSection {
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:nil];
+    searchResults.totalResults = 3;
+    SESearchResultsController* searchResultsController = [[SESearchResultsController alloc] initWithSearchResults:searchResults];
     
-    searchService.successCallback = ^(NSData* data) {
-        [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testShouldPerformSearchAndDelegateResponseToController)];
-    };
-    [self prepare];
-    
-    searchResultsController.searchTerm = @"searchTerm";
-    searchResultsController.locationTerm = @"locationTerm";
-    searchResultsController.apiKey = @"apiKey";
-    
-    [searchResultsController search];
-    
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
-//    
-//    [mockTableView verify];
+    GHAssertEquals(1, [searchResultsController numberOfSectionsInTableView:searchResultsController.tableView], @"Expected number of sections to be 1");
+    GHAssertEquals(searchResults.totalResults, [searchResultsController tableView:[searchResultsController tableView] numberOfRowsInSection:1], @"Total results doesn't match number of ");
 }
 
 @end

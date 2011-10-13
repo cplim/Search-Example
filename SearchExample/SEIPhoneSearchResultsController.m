@@ -1,15 +1,14 @@
 //
-//  SearchController_iPhone.m
+//  SEIPhoneSearchResultsController.m
 //  SearchExample
 //
-//  Created by C.P. Lim on 18/09/11.
+//  Created by C.P. Lim on 13/10/11.
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import "SearchController_iPhone.h"
 #import "SEIPhoneSearchResultsController.h"
 
-@implementation SearchController_iPhone
+@implementation SEIPhoneSearchResultsController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,13 +27,6 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(IBAction)search:(id)sender
-{
-    [super search:sender];
-    SEIPhoneSearchResultsController* resultsController = [[SEIPhoneSearchResultsController alloc] init];
-    [self.navigationController pushViewController:resultsController animated:YES];
-    [resultsController release];
-}
 
 #pragma mark - View lifecycle
 

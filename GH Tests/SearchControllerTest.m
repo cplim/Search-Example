@@ -8,6 +8,7 @@
 
 #import <OCMock/OCMock.h>
 #import "SearchControllerTest.h"
+#import "SESearchResultsController.h"
 
 @implementation SearchControllerTest
 
@@ -25,9 +26,8 @@
     [searchController release];
 }
 
-- (void)testShouldDelegateToSearchServiceWhenSearchIsInvoked
+-(void)testShouldDelegateToNextControllerWithSearchResults
 {
-    [[mockSearchService expect] searchBy:[OCMArg isNotNil] delegate:nil];
     id mockWhatField = [OCMockObject mockForClass:[UITextField class]];
     [[[mockWhatField expect] andReturn:@"what"] text];
     id mockWhereField = [OCMockObject mockForClass:[UITextField class]];
@@ -35,13 +35,13 @@
     
     searchController.whatField = mockWhatField;
     searchController.whereField = mockWhereField;
-    searchController.apiKey = @"apiKey";
     
     [searchController search:nil];
     
+    [searchController.navigationController.topViewController isKindOfClass:[SESearchResultsController class]];
+    
     [mockWhatField verify];
     [mockWhereField verify];
-    [mockSearchService verify];
 }
 
 

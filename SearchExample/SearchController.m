@@ -39,9 +39,10 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 
 -(IBAction)search:(id)sender
 {
-    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:apiKey];
-    [[searchUrl searchFor:[whatField text]] at:[whereField text]];
-    [searchService searchBy:searchUrl delegate:nil];
+//    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:apiKey];
+//    [[searchUrl searchFor:[whatField text]] at:[whereField text]];
+//    [searchService searchBy:searchUrl delegate:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning

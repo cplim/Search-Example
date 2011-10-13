@@ -18,12 +18,12 @@
 @synthesize searchService;
 @synthesize searchResults;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
+- (id)initWithSearchResults:(SESearchResults*)results {
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
+        self.searchResults = [results retain];
     }
-    return self;
+    return self;    
 }
 
 - (void)dealloc {
@@ -31,6 +31,7 @@
     [locationTerm release];
     [apiKey release];
     [searchService release];
+    [searchResults release];
     [super dealloc];
 }
 
@@ -112,16 +113,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.searchResults.totalResults;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

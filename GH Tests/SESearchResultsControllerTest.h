@@ -6,13 +6,9 @@
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import <GHUnitIOS/GHTestCase.h>
+#import <GHUnitIOS/GHUnit.h>
 #import "SESearchResultsController.h"
-#import "SESearchService.h"
 
-@interface SESearchResultsControllerTest : GHAsyncTestCase {
-    SESearchResultsController* searchResultsController;
-    SESearchService* searchService;
-}
-- (void)testShouldPerformSearchAndDelegateResponseToController;
+@interface SESearchResultsControllerTest : GHTestCase 
+- (void)testShouldReturnTotalNumberOfRowsInSection;
 @end
