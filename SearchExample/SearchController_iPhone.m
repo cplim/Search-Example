@@ -31,9 +31,18 @@
 -(IBAction)search:(id)sender
 {
     [super search:sender];
-    SEIPhoneSearchResultsController* resultsController = [[SEIPhoneSearchResultsController alloc] init];
+    
+    // search results
+    SESearchService* service = [[SESearchService alloc] init];
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:service];
+    searchResults.searchTerm = [whatField text];
+    searchResults.locationTerm = [whereField text];
+    [searchResults execute];
+    SEIPhoneSearchResultsController* resultsController = [[SEIPhoneSearchResultsController alloc] initWithSearchResults:searchResults];
     [self.navigationController pushViewController:resultsController animated:YES];
     [resultsController release];
+    [searchResults release];
+    [service release];
 }
 
 #pragma mark - View lifecycle

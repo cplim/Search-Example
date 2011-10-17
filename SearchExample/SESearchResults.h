@@ -14,10 +14,15 @@
     NSString* _searchTerm;
     NSString* _locationTerm;
     SESearchService* _searchService;
+    NSMutableArray* _results;
+    NSMutableData* _data;
 }
 - (id)initWithSearchService:(SESearchService*)searchService;
+- (void)execute;
 @property (nonatomic, retain) SESearchService* searchService; 
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
+@property (nonatomic, readonly) NSMutableArray* results;
+@property (nonatomic, retain) NSData* data;
 @property (nonatomic, assign) int totalResults;
 @end
