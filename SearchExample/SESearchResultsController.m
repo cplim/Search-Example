@@ -22,6 +22,7 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         self.searchResults = [results retain];
+        [self.searchResults addObserver:self forKeyPath:@"totalResults" options:0 context:@"searchResults"];
     }
     return self;    
 }
@@ -35,22 +36,8 @@
     [super dealloc];
 }
 
-- (void)search {
-    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:apiKey];
-    [[searchUrl searchFor:searchTerm] at:locationTerm];
-    [searchService searchBy:searchUrl];
-//    searchService.successCallback = ^(NSData* data) {
-//        searchResults = [data objectFromJSONData];
-//        [self.tableView reloadData];
-//    };
-    [searchService addObserver:self forKeyPath:@"completed" options:0 context:@"completedDownload"];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([object isKindOfClass:[SESearchService class]] && 
-        [keyPath isEqualToString:@"completed"] && 
-        [object completed]) {
-        NSDictionary* json = [[object data] objectFromJSONData];
+    if ([object isKindOfClass:[SESearchResults class]]) {
         [self.tableView reloadData];
     }
 }
@@ -118,6 +105,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // FIXME: Use total results
+//    return self.searchResults.results.count;
     return self.searchResults.totalResults;
 }
 
@@ -130,7 +119,10 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    if(indexPath.row < searchResults.results.count) {
+        NSLog(@"row num %d", indexPath.row);
+        cell.textLabel.text = [searchResults.results objectAtIndex:indexPath.row];
+    }
     
     return cell;
 }

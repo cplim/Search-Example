@@ -18,7 +18,6 @@
     SESearchResults* searchResults;
 }
 - (id)initWithSearchResults:(SESearchResults*)results;
-- (void)search;
 
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
