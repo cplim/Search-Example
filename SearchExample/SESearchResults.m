@@ -51,10 +51,12 @@
     [results enumerateObjectsUsingBlock:^(id result, NSUInteger index, BOOL* stop) {
         [self.results addObject: [result valueForKey:@"name"]];
     }];
+    [_data release];
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 //    NSLog(@"Error!");
+    [_data release];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)receivedData {

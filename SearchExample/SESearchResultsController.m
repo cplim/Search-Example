@@ -106,8 +106,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // FIXME: Use total results
-//    return self.searchResults.results.count;
-    return self.searchResults.totalResults;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,9 +118,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
+    NSLog(@"row num %d", indexPath.row);
     if(indexPath.row < searchResults.results.count) {
-        NSLog(@"row num %d", indexPath.row);
-        cell.textLabel.text = [searchResults.results objectAtIndex:indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%d. %@", (indexPath.row + 1), [searchResults.results objectAtIndex:indexPath.row]];
     }
     
     return cell;

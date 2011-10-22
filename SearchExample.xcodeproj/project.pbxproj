@@ -44,9 +44,6 @@
 		CF918087141621BB0021C598 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF918085141621BB0021C598 /* MainWindow_iPhone.xib */; };
 		CF91808B141621BB0021C598 /* SearchExampleAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = CF91808A141621BB0021C598 /* SearchExampleAppDelegate_iPad.m */; };
 		CF91808E141621BB0021C598 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF91808C141621BB0021C598 /* MainWindow_iPad.xib */; };
-		CFA74CE514348FDB0025F2D0 /* SEJsonParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA74CE414348FDB0025F2D0 /* SEJsonParserTest.m */; };
-		CFA74CE8143490050025F2D0 /* SEJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA74CE7143490050025F2D0 /* SEJsonParser.m */; };
-		CFA74CE9143490050025F2D0 /* SEJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA74CE7143490050025F2D0 /* SEJsonParser.m */; };
 		CFAE11C4143C7453009DA61E /* SESearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE11C3143C7453009DA61E /* SESearchResultsController.m */; };
 		CFAE11C5143C7453009DA61E /* SESearchResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE11C3143C7453009DA61E /* SESearchResultsController.m */; };
 		CFAE11C9143C7489009DA61E /* SESearchResultsControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAE11C8143C7489009DA61E /* SESearchResultsControllerTest.m */; };
@@ -107,11 +104,6 @@
 		CF91808A141621BB0021C598 /* SearchExampleAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchExampleAppDelegate_iPad.m; path = iPad/SearchExampleAppDelegate_iPad.m; sourceTree = "<group>"; };
 		CF91808D141621BB0021C598 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
 		CF918095141621BB0021C598 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		CFA74CE314348FDB0025F2D0 /* SEJsonParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEJsonParserTest.h; sourceTree = "<group>"; };
-		CFA74CE414348FDB0025F2D0 /* SEJsonParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEJsonParserTest.m; sourceTree = "<group>"; };
-		CFA74CE6143490050025F2D0 /* SEJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEJsonParser.h; sourceTree = "<group>"; };
-		CFA74CE7143490050025F2D0 /* SEJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEJsonParser.m; sourceTree = "<group>"; };
-		CFA74CEA1434921B0025F2D0 /* SEJsonCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEJsonCallback.h; sourceTree = "<group>"; };
 		CFAE11C2143C7453009DA61E /* SESearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchResultsController.h; sourceTree = "<group>"; };
 		CFAE11C3143C7453009DA61E /* SESearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchResultsController.m; sourceTree = "<group>"; };
 		CFAE11C7143C7489009DA61E /* SESearchResultsControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchResultsControllerTest.h; sourceTree = "<group>"; };
@@ -159,9 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				CF0DA4A71435FF3E0045885A /* SEQueryURL.h */,
-				CFA74CE6143490050025F2D0 /* SEJsonParser.h */,
-				CFA74CE7143490050025F2D0 /* SEJsonParser.m */,
-				CFA74CEA1434921B0025F2D0 /* SEJsonCallback.h */,
 				CFFA19B914178B8E00413486 /* SESearchService.h */,
 				CFFA19BA14178B8E00413486 /* SESearchService.m */,
 				CF0DA4A41435ED300045885A /* Sensis */,
@@ -183,8 +172,6 @@
 		CF0DA4A51435ED5C0045885A /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				CFA74CE314348FDB0025F2D0 /* SEJsonParserTest.h */,
-				CFA74CE414348FDB0025F2D0 /* SEJsonParserTest.m */,
 				CF7777A9141B2E5A00690920 /* SESearchServiceTest.h */,
 				CF7777AA141B2E5A00690920 /* SESearchServiceTest.m */,
 				CF0DA4A61435ED650045885A /* Sensis */,
@@ -418,6 +405,9 @@
 /* Begin PBXProject section */
 		CF918062141621B90021C598 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = CF918065141621B90021C598 /* Build configuration list for PBXProject "SearchExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -476,8 +466,6 @@
 				CF66BE241422907C00C55DB9 /* SESensisSearchURLTest.m in Sources */,
 				CF66BE28142291B300C55DB9 /* SESensisSearchURL.m in Sources */,
 				CF6AB8E91428B90300A67940 /* SearchControllerTest.m in Sources */,
-				CFA74CE514348FDB0025F2D0 /* SEJsonParserTest.m in Sources */,
-				CFA74CE9143490050025F2D0 /* SEJsonParser.m in Sources */,
 				CF0DA49C1435ECA70045885A /* SESensisResultsSummaryTest.m in Sources */,
 				CF0DA4A11435ECEF0045885A /* SESensisResultsSummary.m in Sources */,
 				CFAE11C5143C7453009DA61E /* SESearchResultsController.m in Sources */,
@@ -501,7 +489,6 @@
 				CF906D84142608A5001A8FA0 /* SearchController.m in Sources */,
 				CF906D8A142608FD001A8FA0 /* SearchController_iPhone.m in Sources */,
 				CF906D8F14260929001A8FA0 /* SearchController_iPad.m in Sources */,
-				CFA74CE8143490050025F2D0 /* SEJsonParser.m in Sources */,
 				CF0DA4A01435ECEF0045885A /* SESensisResultsSummary.m in Sources */,
 				CFAE11C4143C7453009DA61E /* SESearchResultsController.m in Sources */,
 				CF4B02CE1446F6F100203EFE /* SEIPhoneSearchResultsController.m in Sources */,
@@ -558,6 +545,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GH Tests/GH Tests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Libraries";
 				INFOPLIST_FILE = "GH Tests/GH Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries";
@@ -584,6 +572,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GH Tests/GH Tests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/Libraries";
 				INFOPLIST_FILE = "GH Tests/GH Tests-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries";
@@ -649,6 +638,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SearchExample/SearchExample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SearchExample/SearchExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -661,6 +651,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SearchExample/SearchExample-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "SearchExample/SearchExample-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
