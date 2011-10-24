@@ -18,10 +18,6 @@
 
 @synthesize results;
 
-static NSString* SuccessContext = @"success";
-static NSString* FailureContext = @"failure";
-
-
 - (void)setUp {
     [super setUp];
     
