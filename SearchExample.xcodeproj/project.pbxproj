@@ -16,6 +16,8 @@
 		CF4B02D11446F6F100203EFE /* SEIPhoneSearchResultsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4B02CD1446F6F100203EFE /* SEIPhoneSearchResultsController.xib */; };
 		CF4B02D71447019800203EFE /* SESearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4B02D61447019800203EFE /* SESearchResults.m */; };
 		CF4B02D81447019800203EFE /* SESearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4B02D61447019800203EFE /* SESearchResults.m */; };
+		CF4D961D145591F400067011 /* ILCannedURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4D961C145591F400067011 /* ILCannedURLProtocol.m */; };
+		CF52CE6414543D7500E805F8 /* SESearchResultsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52CE6314543D7500E805F8 /* SESearchResultsTest.m */; };
 		CF66BE241422907C00C55DB9 /* SESensisSearchURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66BE231422907C00C55DB9 /* SESensisSearchURLTest.m */; };
 		CF66BE27142291B300C55DB9 /* SESensisSearchURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */; };
 		CF66BE28142291B300C55DB9 /* SESensisSearchURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CF66BE26142291B300C55DB9 /* SESensisSearchURL.m */; };
@@ -65,6 +67,10 @@
 		CF4B02CD1446F6F100203EFE /* SEIPhoneSearchResultsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SEIPhoneSearchResultsController.xib; sourceTree = "<group>"; };
 		CF4B02D51447019800203EFE /* SESearchResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchResults.h; sourceTree = "<group>"; };
 		CF4B02D61447019800203EFE /* SESearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchResults.m; sourceTree = "<group>"; };
+		CF4D961B145591F400067011 /* ILCannedURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILCannedURLProtocol.h; sourceTree = "<group>"; };
+		CF4D961C145591F400067011 /* ILCannedURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILCannedURLProtocol.m; sourceTree = "<group>"; };
+		CF52CE6214543D7500E805F8 /* SESearchResultsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESearchResultsTest.h; sourceTree = "<group>"; };
+		CF52CE6314543D7500E805F8 /* SESearchResultsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESearchResultsTest.m; sourceTree = "<group>"; };
 		CF66BE221422907C00C55DB9 /* SESensisSearchURLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisSearchURLTest.h; sourceTree = "<group>"; };
 		CF66BE231422907C00C55DB9 /* SESensisSearchURLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisSearchURLTest.m; sourceTree = "<group>"; };
 		CF66BE25142291B300C55DB9 /* SESensisSearchURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisSearchURL.h; sourceTree = "<group>"; };
@@ -199,6 +205,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		CF4D961614558FC800067011 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CF4D961B145591F400067011 /* ILCannedURLProtocol.h */,
+				CF4D961C145591F400067011 /* ILCannedURLProtocol.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		CF52CE5B1454399E00E805F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF52CE6214543D7500E805F8 /* SESearchResultsTest.h */,
+				CF52CE6314543D7500E805F8 /* SESearchResultsTest.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		CF6AB8E51428B8D100A67940 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +237,8 @@
 		CF77778A141B2CC100690920 /* GHTests */ = {
 			isa = PBXGroup;
 			children = (
+				CF4D961614558FC800067011 /* Utility */,
+				CF52CE5B1454399E00E805F8 /* Models */,
 				CF0DA4A51435ED5C0045885A /* Search */,
 				CF6AB8E51428B8D100A67940 /* Controllers */,
 				CF77778B141B2CC100690920 /* Supporting Files */,
@@ -472,6 +498,8 @@
 				CFAE11C9143C7489009DA61E /* SESearchResultsControllerTest.m in Sources */,
 				CF4B02CF1446F6F100203EFE /* SEIPhoneSearchResultsController.m in Sources */,
 				CF4B02D81447019800203EFE /* SESearchResults.m in Sources */,
+				CF52CE6414543D7500E805F8 /* SESearchResultsTest.m in Sources */,
+				CF4D961D145591F400067011 /* ILCannedURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
