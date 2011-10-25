@@ -6,48 +6,56 @@
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
 #import "SESensisSearchURLTest.h"
 
 @implementation SESensisSearchURLTest
 
-- (void) setUp
-{
+- (void) setUp {
+    [super setUp];
     _sensisSearchURL = [[SESensisSearchURL alloc] initWithApiKey:@"some-api-key"];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     [_sensisSearchURL release];
+    [super tearDown];
 }
 
-- (void)testShouldIncludeAPIKeyInRequestUrl
-{
+- (void)testShouldIncludeAPIKeyInRequestUrl {
     NSString* queryUrl = [_sensisSearchURL asQueryUrl];
-    GHAssertTrue([queryUrl rangeOfString:@"key=some-api-key"].location != NSNotFound, @"Failed to include key in url");
+    expect(queryUrl).toContain(@"key=some-api-key");
 }
 
-- (void) testShouldIncludeQueryInRequestUrlWhenSpecified
-{
+- (void) testShouldIncludeQueryInRequestUrlWhenSpecified {
     NSString* queryUrl = [[_sensisSearchURL searchFor:@"motor cars used"] asQueryUrl];
-    GHAssertTrue([queryUrl rangeOfString:@"query=motor%20cars%20used"].location != NSNotFound, @"Failed to include query in url");
+    expect(queryUrl).toContain(@"query=motor%20cars%20used");
 }
 
-- (void) testShouldNotIncludeQueryInRequestUrlWhenNotSpecified
-{
+- (void) testShouldNotIncludeQueryInRequestUrlWhenNotSpecified {
     NSString* queryUrl = [_sensisSearchURL asQueryUrl];
-    GHAssertTrue([queryUrl rangeOfString:@"query="].location == NSNotFound, @"Should not include query in url");
+    expect(queryUrl).Not.toContain(@"query=");
 }
 
-- (void)testShouldIncludeLocationInRequestUrlWhenSpecified
-{
+- (void)testShouldIncludeLocationInRequestUrlWhenSpecified {
     NSString* queryUrl = [[_sensisSearchURL at:@"26 xyz road, suburb north"] asQueryUrl];
-    GHAssertTrue([queryUrl rangeOfString:@"location=26%20xyz%20road,%20suburb%20north"].location != NSNotFound, @"Failed to include location in url");
+    expect(queryUrl).toContain(@"location=26%20xyz%20road,%20suburb%20north");
 }
 
-- (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified
-{
+- (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified {
     NSString* queryUrl = [_sensisSearchURL asQueryUrl];
-    GHAssertTrue([queryUrl rangeOfString:@"location="].location == NSNotFound, @"Should not include location in url");
+    expect(queryUrl).Not.toContain(@"location=");
 }
+
+- (void)testShouldNotIncludePageNumberWhenPageIsOneOrLess {
+    NSString* queryUrl = [[_sensisSearchURL onPage:1] asQueryUrl];
+    expect(queryUrl).Not.toContain(@"page=");
+}
+
+- (void)testShouldIncludePageNumberWhenGreaterThanOne {
+    NSString* queryUrl = [[_sensisSearchURL onPage:20] asQueryUrl];
+    expect(queryUrl).toContain(@"page=20");
+}
+
 
 @end

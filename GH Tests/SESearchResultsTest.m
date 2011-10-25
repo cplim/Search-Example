@@ -24,7 +24,7 @@
     [super setUp];
     
     SESearchService* searchService = [[SESearchService alloc] init];
-    results = [[SESearchResults alloc] initWithSearchService:searchService];
+    results = [[SESearchResults alloc] initWithSearchService:searchService apiKey:@"apiKey"];
     [searchService release];
     
     [NSURLProtocol registerClass:[ILCannedURLProtocol class]];
@@ -60,7 +60,7 @@
     [results setLocationTerm:@"where"];
     
     // execute
-    [results execute];
+    [results fetchRestulsForPage:1];
 
     // assert/verify
     expect(results.results.count).isGoing.toEqual(2);
@@ -75,7 +75,7 @@
     [results setLocationTerm:@"where"];
     
     // execute
-    [results execute];
+    [results fetchRestulsForPage:1];
     
     // assert/verify
     expect(results.results.count).isGoing.toEqual(0);

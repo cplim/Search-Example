@@ -58,6 +58,12 @@
     return self;
 }
 
+-(SESensisSearchURL*) onPage:(int)pageNumber {
+    _pageNumber = pageNumber;
+    return self;
+}
+
+
 - (NSString*) asQueryUrl
 {
     NSMutableString* urlString = [NSMutableString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@", 
@@ -69,6 +75,10 @@
     
     if ([_where length] != 0) {
         [urlString appendFormat:@"&location=%@", [_where stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    }
+    
+    if (_pageNumber > 1) {
+        [urlString appendFormat:@"&page=%d", _pageNumber];
     }
     
     return urlString;

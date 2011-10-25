@@ -10,6 +10,7 @@
 #import "SESearchService.h"
 
 @interface SESearchResults : NSObject {
+    NSString* _apiKey;
     int _totalResults;
     NSString* _searchTerm;
     NSString* _locationTerm;
@@ -18,8 +19,10 @@
     NSMutableData* _data;
 }
 - (id)initWithSearchService:(SESearchService*)searchService;
-- (void)execute;
+- (id)initWithSearchService:(SESearchService*)searchService apiKey:(NSString*)apiKey;
+- (void)fetchRestulsForPage:(int)pageNumber;
 @property (nonatomic, retain) SESearchService* searchService; 
+@property (nonatomic, retain) NSString* apiKey;
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
 @property (nonatomic, readonly) NSMutableArray* results;

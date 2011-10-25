@@ -13,10 +13,12 @@
     NSString* _apiKey;
     NSString* _what;
     NSString* _where;
+    int _pageNumber;
 }
 +(SESensisSearchURL*) sensisSearchURLWithApiKey:(NSString*)apiKey;
 -(SESensisSearchURL*) initWithApiKey:(NSString*)apiKey;
 -(SESensisSearchURL*) searchFor:(NSString*)what;
 -(SESensisSearchURL*) at:(NSString*)where;
+-(SESensisSearchURL*) onPage:(int)pageNumber;
 -(NSString*) asQueryUrl;
 @end

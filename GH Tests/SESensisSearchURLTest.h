@@ -17,5 +17,7 @@
 - (void)testShouldNotIncludeQueryInRequestUrlWhenNotSpecified;
 - (void)testShouldIncludeLocationInRequestUrlWhenSpecified;
 - (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified;
+- (void)testShouldNotIncludePageNumberWhenPageIsOneOrLess;
+- (void)testShouldIncludePageNumberWhenGreaterThanOne;
 
 @end

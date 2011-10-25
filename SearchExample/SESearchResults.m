@@ -13,31 +13,43 @@
 @implementation SESearchResults
 
 @synthesize searchService = _searchService;
+@synthesize apiKey = _apiKey;
 @synthesize searchTerm = _searchTerm;
 @synthesize locationTerm = _locationTerm;
 @synthesize results = _results;
 @synthesize data = _data;
 @synthesize totalResults = _totalResults;
 
-- (id)initWithSearchService:(SESearchService*)service {
+- (id)initWithSearchService:(SESearchService*)service apiKey:(NSString *)apiKey {
     self = [super init];
     if (self) {
         self.searchService = [service retain];
+        self.apiKey = [apiKey retain];
         _results = [[NSMutableArray alloc] init];
     }
     
     return self;
 }
 
-- (void)execute {
-    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
-    [[searchUrl searchFor:self.searchTerm] at:self.locationTerm];
+- (id)initWithSearchService:(SESearchService*)service {
+    return [self initWithSearchService:service apiKey:@""];
+}
+
+- (void)fetchRestulsForPage:(int)pageNumber {
+    // build query url
+    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:self.apiKey];
+    [searchUrl searchFor:self.searchTerm]; 
+    [searchUrl at:self.locationTerm];
+    [searchUrl onPage:pageNumber];
+    
+    // execute search
     [self.searchService searchBy:searchUrl delegate:self];
     
 }
 
 - (void)dealloc {
     [_searchService release];
+    [_apiKey release];
     [_searchTerm release];
     [_results release];
     [_locationTerm release];
@@ -55,7 +67,6 @@
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-//    NSLog(@"Error!");
     [_data release];
 }
 
