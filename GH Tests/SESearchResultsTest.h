@@ -8,7 +8,7 @@
 
 #import <GHUnitIOS/GHUnit.h>
 
-@interface SESearchResultsTest : GHAsyncTestCase
+@interface SESearchResultsTest : GHTestCase
 - (void)testValidResponseData;
 - (void)testInvalidResponseData;
 @end

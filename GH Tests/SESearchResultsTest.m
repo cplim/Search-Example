@@ -6,6 +6,8 @@
 //  Copyright (c) 2011 C.P. Lim. All rights reserved.
 //
 
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
 #import "SESearchResultsTest.h"
 #import "SESearchResults.h"
 #import "ILCannedURLProtocol.h"
@@ -51,16 +53,9 @@
     return [@"{\"ok\":\"no\"}" dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [self notify:kGHUnitWaitStatusSuccess forSelector:(SEL)context];
-}
-
 - (void)testValidResponseData {
-    [self prepare];
-    
     // setup
     [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
-    [results addObserver:self forKeyPath:@"totalResults" options:0 context:_cmd]; // context: current method selector
     [results setSearchTerm:@"what"];
     [results setLocationTerm:@"where"];
     
@@ -68,16 +63,14 @@
     [results execute];
 
     // assert/verify
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
-    GHAssertEquals(results.totalResults, 2, @"total results should be the same");
+    expect(results.results.count).isGoing.toEqual(2);
+    expect(results.results).toContain(@"name1");
+    expect(results.results).toContain(@"name2");
 }
 
 - (void)testInvalidResponseData {
-    [self prepare];
-    
     // setup
     [ILCannedURLProtocol setCannedResponseData:[self invalidResponseData]];
-    [results addObserver:self forKeyPath:@"totalResults" options:0 context:_cmd]; // context: current method selector
     [results setSearchTerm:@"what"];
     [results setLocationTerm:@"where"];
     
@@ -85,8 +78,7 @@
     [results execute];
     
     // assert/verify
-    [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
-    GHAssertEquals(results.totalResults, 0, @"total results should be the same");
+    expect(results.results.count).isGoing.toEqual(0);
 }
 
 @end
