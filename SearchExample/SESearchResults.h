@@ -17,6 +17,7 @@
     SESearchService* _searchService;
     NSMutableArray* _results;
     NSMutableData* _data;
+    NSError* _error;
 }
 - (id)initWithSearchService:(SESearchService*)searchService;
 - (id)initWithSearchService:(SESearchService*)searchService apiKey:(NSString*)apiKey;
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
 @property (nonatomic, readonly) NSMutableArray* results;
+@property (nonatomic, retain) NSError* error;
 @property (nonatomic, retain) NSData* data;
 @property (nonatomic, assign) int totalResults;
 @end

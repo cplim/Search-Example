@@ -9,6 +9,7 @@
 #import <GHUnitIOS/GHUnit.h>
 
 @interface SESearchResultsTest : GHTestCase
-- (void)testValidResponseData;
-- (void)testInvalidResponseData;
+- (void)testValidResponse;
+- (void)testInvalidResponse;
+- (void)testErrorResponse;
 @end

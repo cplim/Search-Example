@@ -17,6 +17,7 @@
 @synthesize searchTerm = _searchTerm;
 @synthesize locationTerm = _locationTerm;
 @synthesize results = _results;
+@synthesize error = _error;
 @synthesize data = _data;
 @synthesize totalResults = _totalResults;
 
@@ -53,6 +54,7 @@
     [_searchTerm release];
     [_results release];
     [_locationTerm release];
+    [_error release];
     [super dealloc];
 }
 
@@ -67,6 +69,7 @@
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    _error = [error retain];
     [_data release];
 }
 

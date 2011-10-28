@@ -53,7 +53,7 @@
     return [@"{\"ok\":\"no\"}" dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)testValidResponseData {
+- (void)testValidResponse {
     // setup
     [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
     [results setSearchTerm:@"what"];
@@ -68,7 +68,7 @@
     expect(results.results).toContain(@"name2");
 }
 
-- (void)testInvalidResponseData {
+- (void)testInvalidResponse {
     // setup
     [ILCannedURLProtocol setCannedResponseData:[self invalidResponseData]];
     [results setSearchTerm:@"what"];
@@ -80,5 +80,21 @@
     // assert/verify
     expect(results.results.count).isGoing.toEqual(0);
 }
+
+- (void)testErrorResponse {
+    // setup
+    NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorTimedOut userInfo:nil];
+    [ILCannedURLProtocol setCannedError:error];
+    [results setSearchTerm:@"what"];
+    [results setLocationTerm:@"where"];
+    
+    // execute
+    [results fetchRestulsForPage:1];
+    
+    // assert/verify
+    expect([results.error code]).isGoing.toEqual([error code]);
+    expect([results.error domain]).toEqual([error domain]);
+}
+
 
 @end
