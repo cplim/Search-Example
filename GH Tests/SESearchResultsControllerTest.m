@@ -6,19 +6,21 @@
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import <OCMock/OCMock.h>
+#define EXP_SHORTHAND
+#import <Expecta/Expecta.h>
 #import "SESearchResultsControllerTest.h"
 #import "SESearchResults.h"
 
 @implementation SESearchResultsControllerTest
 
 - (void)testShouldReturnTotalNumberOfRowsInSection {
-    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:nil];
-    searchResults.totalResults = 3;
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:nil apiKey:nil];
+    NSArray* results = [NSArray arrayWithObjects:@"one", @"two", @"three", nil];
+    [searchResults setResults:results];
     SESearchResultsController* searchResultsController = [[SESearchResultsController alloc] initWithSearchResults:searchResults];
     
-    GHAssertEquals(1, [searchResultsController numberOfSectionsInTableView:searchResultsController.tableView], @"Expected number of sections to be 1");
-    GHAssertEquals(searchResults.totalResults, [searchResultsController tableView:[searchResultsController tableView] numberOfRowsInSection:1], @"Total results doesn't match number of ");
+    expect([searchResultsController numberOfSectionsInTableView:searchResultsController.tableView]).toEqual(1);
+    expect([searchResultsController tableView:[searchResultsController tableView] numberOfRowsInSection:1]).toEqual(results.count);
 }
 
 @end

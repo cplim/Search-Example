@@ -12,4 +12,5 @@
 - (void)testValidResponse;
 - (void)testInvalidResponse;
 - (void)testErrorResponse;
+- (void)testShouldAccumulateResultsWhenCallingSecondPage;
 @end

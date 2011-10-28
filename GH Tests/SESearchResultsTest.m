@@ -46,7 +46,7 @@
 }
 
 - (NSData*) validResponseData {
-    return [@"{\"results\":[{\"name\":\"name1\"},{\"name\":\"name2\"}], \"totalResults\":2}" dataUsingEncoding:NSUTF8StringEncoding];
+    return [@"{\"results\":[{\"name\":\"name1\"},{\"name\":\"name2\"}], \"totalResults\":10}" dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSData*) invalidResponseData {
@@ -54,44 +54,65 @@
 }
 
 - (void)testValidResponse {
-    // setup
+    // given
     [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
     [results setSearchTerm:@"what"];
     [results setLocationTerm:@"where"];
     
-    // execute
+    // when
     [results fetchRestulsForPage:1];
 
-    // assert/verify
+    // then
     expect(results.results.count).isGoing.toEqual(2);
     expect(results.results).toContain(@"name1");
     expect(results.results).toContain(@"name2");
 }
 
+- (void)testShouldAccumulateResultsWhenCallingSecondPage {
+    // given
+    [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
+    NSArray* page1Results = [NSArray arrayWithObjects:@"nameX", @"nameY", nil];
+    [results setResults:page1Results];
+    [results setLocationTerm:@"where"];
+    [results setSearchTerm:@"what"];
+    [results setLocationTerm:@"where"];
+    
+    // when
+    [results fetchRestulsForPage:2];
+    
+    // then
+    expect(results.results.count).isGoing.toEqual(4);
+    expect(results.results).toContain(@"nameX");
+    expect(results.results).toContain(@"nameY");
+    expect(results.results).toContain(@"name1");
+    expect(results.results).toContain(@"name2");
+}
+
+
 - (void)testInvalidResponse {
-    // setup
+    // given
     [ILCannedURLProtocol setCannedResponseData:[self invalidResponseData]];
     [results setSearchTerm:@"what"];
     [results setLocationTerm:@"where"];
     
-    // execute
+    // when
     [results fetchRestulsForPage:1];
     
-    // assert/verify
+    // then
     expect(results.results.count).isGoing.toEqual(0);
 }
 
 - (void)testErrorResponse {
-    // setup
+    // given
     NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorTimedOut userInfo:nil];
     [ILCannedURLProtocol setCannedError:error];
     [results setSearchTerm:@"what"];
     [results setLocationTerm:@"where"];
     
-    // execute
+    // when
     [results fetchRestulsForPage:1];
     
-    // assert/verify
+    // then
     expect([results.error code]).isGoing.toEqual([error code]);
     expect([results.error domain]).toEqual([error domain]);
 }

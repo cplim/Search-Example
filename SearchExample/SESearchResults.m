@@ -10,30 +10,32 @@
 #import "SESensisSearchURL.h"
 #import "JSONKit.h"
 
+@interface SESearchResults() 
+@property (nonatomic, retain) SESearchService* searchService; 
+@property (nonatomic, retain) NSString* apiKey;
+@property (nonatomic, retain) NSMutableData* data;
+@end
+
 @implementation SESearchResults
 
-@synthesize searchService = _searchService;
-@synthesize apiKey = _apiKey;
-@synthesize searchTerm = _searchTerm;
-@synthesize locationTerm = _locationTerm;
-@synthesize results = _results;
-@synthesize error = _error;
-@synthesize data = _data;
-@synthesize totalResults = _totalResults;
+@synthesize searchService;
+@synthesize apiKey;
+@synthesize data;
+@synthesize searchTerm;
+@synthesize locationTerm;
+@synthesize results;
+@synthesize error;
+@synthesize totalResults;
 
-- (id)initWithSearchService:(SESearchService*)service apiKey:(NSString *)apiKey {
+- (id)initWithSearchService:(SESearchService*)service apiKey:(NSString *)key {
     self = [super init];
     if (self) {
         self.searchService = [service retain];
-        self.apiKey = [apiKey retain];
-        _results = [[NSMutableArray alloc] init];
+        self.apiKey = [key retain];
+        self.results = [NSArray array];
     }
     
     return self;
-}
-
-- (id)initWithSearchService:(SESearchService*)service {
-    return [self initWithSearchService:service apiKey:@""];
 }
 
 - (void)fetchRestulsForPage:(int)pageNumber {
@@ -49,36 +51,39 @@
 }
 
 - (void)dealloc {
-    [_searchService release];
-    [_apiKey release];
-    [_searchTerm release];
-    [_results release];
-    [_locationTerm release];
-    [_error release];
+    [searchService release];
+    [apiKey release];
+    [searchTerm release];
+    [results release];
+    [locationTerm release];
+    [error release];
     [super dealloc];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSDictionary* json = [_data objectFromJSONData];
-    NSArray* results = [json valueForKey:@"results"];
+    [self.data release];
+    NSDictionary* json = [data objectFromJSONData];
     self.totalResults = [[json valueForKey:@"totalResults"] intValue];
-    [results enumerateObjectsUsingBlock:^(id result, NSUInteger index, BOOL* stop) {
-        [self.results addObject: [result valueForKey:@"name"]];
+    NSArray* jsonResults = [json valueForKey:@"results"];
+    NSMutableArray* objectResults = [[NSMutableArray alloc] initWithArray:self.results];
+    [jsonResults enumerateObjectsUsingBlock:^(id result, NSUInteger index, BOOL* stop) {
+        [objectResults addObject: [result valueForKey:@"name"]];
     }];
-    [_data release];
+    self.results = [objectResults retain];
+    [objectResults release];
 }
 
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    _error = [error retain];
-    [_data release];
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)e {
+    [self.data release];
+    self.error = [e retain];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)receivedData {
-    if(_data == nil) {
-        _data = [[NSMutableData alloc] initWithData:receivedData];
+    if(self.data == nil) {
+        self.data = [[NSMutableData alloc] initWithData:receivedData];
     }
     else {
-        [_data appendData:receivedData];
+        [self.data appendData:receivedData];
     }
 }
 

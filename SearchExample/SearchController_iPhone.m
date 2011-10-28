@@ -34,7 +34,7 @@
     
     // search results
     SESearchService* service = [[SESearchService alloc] init];
-    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:service];
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:service apiKey:[self apiKey]];
     searchResults.searchTerm = [whatField text];
     searchResults.locationTerm = [whereField text];
     [searchResults execute];
