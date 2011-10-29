@@ -37,7 +37,7 @@
     SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:service apiKey:[self apiKey]];
     searchResults.searchTerm = [whatField text];
     searchResults.locationTerm = [whereField text];
-    [searchResults execute];
+    [searchResults fetchRestulsForPage:1];
     SEIPhoneSearchResultsController* resultsController = [[SEIPhoneSearchResultsController alloc] initWithSearchResults:searchResults];
     [self.navigationController pushViewController:resultsController animated:YES];
     [resultsController release];
