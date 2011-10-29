@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SESearchService.h"
 #import "SESearchResults.h"
 
 @interface SESearchResultsController : UITableViewController {
     NSString* searchTerm;
     NSString* locationTerm;
     NSString* apiKey;
-    SESearchService* searchService;
     SESearchResults* searchResults;
 }
 - (id)initWithSearchResults:(SESearchResults*)results;
@@ -22,7 +20,6 @@
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
 @property (nonatomic, retain) NSString* apiKey;
-@property (nonatomic, retain) SESearchService* searchService;
 @property (nonatomic, retain) SESearchResults* searchResults;
 
 @end

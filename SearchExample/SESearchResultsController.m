@@ -7,7 +7,6 @@
 //
 
 #import "SESearchResultsController.h"
-#import "SESensisSearchURL.h"
 #import "JSONKit.h"
 
 @implementation SESearchResultsController
@@ -15,7 +14,6 @@
 @synthesize searchTerm;
 @synthesize locationTerm;
 @synthesize apiKey;
-@synthesize searchService;
 @synthesize searchResults;
 
 - (id)initWithSearchResults:(SESearchResults*)results {
@@ -31,7 +29,6 @@
     [searchTerm release];
     [locationTerm release];
     [apiKey release];
-    [searchService release];
     [searchResults release];
     [super dealloc];
 }

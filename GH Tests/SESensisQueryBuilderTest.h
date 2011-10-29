@@ -1,5 +1,5 @@
 //
-//  SESensisSearchURLTest.h
+//  SESensisQueryBuilderTest.h
 //  SearchExample
 //
 //  Created by C.P. Lim on 16/09/11.
@@ -7,10 +7,10 @@
 //
 
 #import <GHUnitIOS/GHTestCase.h>
-#import "SESensisSearchURL.h"
+#import "SESensisQueryBuilder.h"
 
-@interface SESensisSearchURLTest : GHTestCase {
-    SESensisSearchURL* _sensisSearchURL;
+@interface SESensisQueryBuilderTest : GHTestCase {
+    SESensisQueryBuilder* _sensisQueryBuilder;
 }
 - (void)testShouldIncludeAPIKeyInRequestUrl;
 - (void)testShouldIncludeQueryInRequestUrlWhenSpecified;

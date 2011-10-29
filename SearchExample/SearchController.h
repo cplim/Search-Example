@@ -13,7 +13,6 @@
 {
     IBOutlet UITextField* whatField;
     IBOutlet UITextField* whereField;
-    SESearchService* searchService;
     NSString* apiKey;
 }
 
@@ -21,7 +20,6 @@
 
 @property (nonatomic, retain) IBOutlet UITextField* whatField;
 @property (nonatomic, retain) IBOutlet UITextField* whereField;
-@property (nonatomic, retain) SESearchService* searchService;
 @property (nonatomic, retain) NSString* apiKey;
 
 @end

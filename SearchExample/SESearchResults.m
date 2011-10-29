@@ -7,13 +7,13 @@
 //
 
 #import "SESearchResults.h"
-#import "SESensisSearchURL.h"
+#import "SESensisQueryBuilder.h"
 #import "JSONKit.h"
 
 @interface SESearchResults() 
 @property (nonatomic, retain) NSString* apiKey;
 @property (nonatomic, retain) NSMutableData* data;
-- (void) searchBy:(SESensisSearchURL*)search delegate:(id)delegate;
+- (void) searchBy:(SESensisQueryBuilder*)search delegate:(id)delegate;
 @end
 
 @implementation SESearchResults
@@ -47,7 +47,7 @@
 
 - (void)fetchRestulsForPage:(int)pageNumber {
     // build query url
-    SESensisSearchURL* searchUrl = [SESensisSearchURL sensisSearchURLWithApiKey:self.apiKey];
+    SESensisQueryBuilder* searchUrl = [SESensisQueryBuilder queryBuilderWithApiKey:self.apiKey];
     [searchUrl searchFor:self.searchTerm]; 
     [searchUrl at:self.locationTerm];
     [searchUrl onPage:pageNumber];
@@ -56,7 +56,7 @@
     [self searchBy:searchUrl delegate:self];
 }
 
-- (void) searchBy:(SESensisSearchURL*)search delegate:(id)delegate
+- (void) searchBy:(SESensisQueryBuilder*)search delegate:(id)delegate
 {
     NSString* query = [search asQueryUrl];
     NSURL* queryUrl = [NSURL URLWithString:query];

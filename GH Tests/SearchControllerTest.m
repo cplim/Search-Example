@@ -18,7 +18,6 @@
     id bundle = [OCMockObject mockForClass:[NSBundle class]];
     
     searchController = [[SearchController alloc] initWithNibName:nil bundle:bundle];
-    searchController.searchService = mockSearchService;
 }
 
 - (void)tearDown

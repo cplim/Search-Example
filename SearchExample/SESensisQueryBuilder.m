@@ -1,19 +1,19 @@
 //
-//  SESensisSearchURL.m
+//  SESensisQueryBuilder.m
 //  SearchExample
 //
 //  Created by C.P. Lim on 16/09/11.
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import "SESensisSearchURL.h"
+#import "SESensisQueryBuilder.h"
 
-@implementation SESensisSearchURL
+@implementation SESensisQueryBuilder
 
-+ (SESensisSearchURL*) sensisSearchURLWithApiKey:(NSString *)apiKey
++ (SESensisQueryBuilder*) queryBuilderWithApiKey:(NSString *)apiKey
 {
-    SESensisSearchURL* sensisSearchURL = [[SESensisSearchURL alloc] initWithApiKey:apiKey];
-    return [sensisSearchURL autorelease];
+    SESensisQueryBuilder* queryBuilder = [[SESensisQueryBuilder alloc] initWithApiKey:apiKey];
+    return [queryBuilder autorelease];
 }
 
 - (id) init 
@@ -45,22 +45,22 @@
     [super dealloc];
 }
 
-- (SESensisSearchURL*) searchFor:(NSString *)what {
+- (SESensisQueryBuilder*) searchFor:(NSString *)what {
     _what = [[NSString alloc] initWithString:what];
     return self;
 }
 
-- (SESensisSearchURL*) at:(NSString *)where {
+- (SESensisQueryBuilder*) at:(NSString *)where {
     _where = [[NSString alloc] initWithString:where];
     return self;
 }
 
--(SESensisSearchURL*) onPage:(int)pageNumber {
+-(SESensisQueryBuilder*) onPage:(int)pageNumber {
     _pageNumber = pageNumber;
     return self;
 }
 
--(SESensisSearchURL*) withRows:(int)rows {
+-(SESensisQueryBuilder*) withRows:(int)rows {
     _rows = rows;
     return self;
 }

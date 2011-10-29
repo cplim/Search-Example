@@ -7,7 +7,6 @@
 //
 
 #import "SearchController.h"
-#import "SESensisSearchURL.h"
 
 static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 
@@ -15,7 +14,6 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 
 @synthesize whatField;
 @synthesize whereField;
-@synthesize searchService;
 @synthesize apiKey;
 
 
@@ -33,7 +31,6 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
     [whatField release];
     [whereField release];
     [apiKey release];
-    [searchService release];
     [super dealloc];
 }
 
@@ -74,12 +71,6 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
         NSString* realPath = [path stringByAppendingPathComponent:APP_PROPERTY_FILE];
         NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile:realPath];
         self.apiKey = [[dictionary valueForKey:@"Sensis Search API Key"] retain];
-    }
-    
-    // search service
-    if(searchService == nil)
-    {
-        self.searchService = [[SESearchService alloc] init];
     }
 }
 

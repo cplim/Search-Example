@@ -9,7 +9,7 @@
 #import <GHUnitIOS/GHUnit.h> 
 #import "JSONKit.h"
 #import "SESearchServiceTest.h"
-#import "SESensisSearchURL.h"
+#import "SESensisQueryBuilder.h"
 
 @interface FailureUrl : NSObject<SEQueryURL> 
 @end
@@ -42,7 +42,7 @@
     };
     
     [self prepare];
-    SESensisSearchURL* url = [SESensisSearchURL sensisSearchURLWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
+    SESensisQueryBuilder* url = [SESensisQueryBuilder queryBuilderWithApiKey:@"u9qwcpa498wksudsrg79nxsx"];
     [_searchService searchBy:url];
     
     [self waitForStatus:kGHUnitWaitStatusSuccess timeout:5.0];
