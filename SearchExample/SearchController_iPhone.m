@@ -33,8 +33,7 @@
     [super search:sender];
     
     // search results
-    SESearchService* service = [[SESearchService alloc] init];
-    SESearchResults* searchResults = [[SESearchResults alloc] initWithSearchService:service apiKey:[self apiKey]];
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithApiKey:[self apiKey]];
     searchResults.searchTerm = [whatField text];
     searchResults.locationTerm = [whereField text];
     [searchResults fetchRestulsForPage:1];
@@ -42,7 +41,6 @@
     [self.navigationController pushViewController:resultsController animated:YES];
     [resultsController release];
     [searchResults release];
-    [service release];
 }
 
 #pragma mark - View lifecycle

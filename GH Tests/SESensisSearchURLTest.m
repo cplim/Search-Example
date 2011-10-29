@@ -57,5 +57,16 @@
     expect(queryUrl).toContain(@"page=20");
 }
 
+- (void)testShouldNotIncludeRowsWhenRowIsZeroOrLess {
+    NSString* queryUrl = [[_sensisSearchURL withRows:0] asQueryUrl];
+    expect(queryUrl).Not.toContain(@"rows=");
+}
+
+- (void)testShouldIncludeRowsWhenSpecified {
+    NSString* queryUrl = [[_sensisSearchURL withRows:12] asQueryUrl];
+    expect(queryUrl).toContain(@"rows=12");
+}
+
+
 
 @end

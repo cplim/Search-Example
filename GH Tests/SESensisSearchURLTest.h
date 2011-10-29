@@ -19,5 +19,7 @@
 - (void)testShouldNotIncludeLocationInRequestUrlWhenNotSpecified;
 - (void)testShouldNotIncludePageNumberWhenPageIsOneOrLess;
 - (void)testShouldIncludePageNumberWhenGreaterThanOne;
+- (void)testShouldNotIncludeRowsWhenRowIsZeroOrLess;
+- (void)testShouldIncludeRowsWhenSpecified;
 
 @end

@@ -11,14 +11,13 @@
 #import "JSONKit.h"
 
 @interface SESearchResults() 
-@property (nonatomic, retain) SESearchService* searchService; 
 @property (nonatomic, retain) NSString* apiKey;
 @property (nonatomic, retain) NSMutableData* data;
+- (void) searchBy:(SESensisSearchURL*)search delegate:(id)delegate;
 @end
 
 @implementation SESearchResults
 
-@synthesize searchService;
 @synthesize apiKey;
 @synthesize data;
 @synthesize searchTerm;
@@ -27,15 +26,23 @@
 @synthesize error;
 @synthesize totalResults;
 
-- (id)initWithSearchService:(SESearchService*)service apiKey:(NSString *)key {
+- (id)initWithApiKey:(NSString *)key {
     self = [super init];
     if (self) {
-        self.searchService = [service retain];
         self.apiKey = [key retain];
         self.results = [NSArray array];
     }
     
     return self;
+}
+
+- (void)dealloc {
+    [apiKey release];
+    [searchTerm release];
+    [results release];
+    [locationTerm release];
+    [error release];
+    [super dealloc];
 }
 
 - (void)fetchRestulsForPage:(int)pageNumber {
@@ -46,18 +53,19 @@
     [searchUrl onPage:pageNumber];
     
     // execute search
-    [self.searchService searchBy:searchUrl delegate:self];
-    
+    [self searchBy:searchUrl delegate:self];
 }
 
-- (void)dealloc {
-    [searchService release];
-    [apiKey release];
-    [searchTerm release];
-    [results release];
-    [locationTerm release];
-    [error release];
-    [super dealloc];
+- (void) searchBy:(SESensisSearchURL*)search delegate:(id)delegate
+{
+    NSString* query = [search asQueryUrl];
+    NSURL* queryUrl = [NSURL URLWithString:query];
+    NSURLRequest* requestUrl = [[NSURLRequest alloc] initWithURL:queryUrl];
+    
+    NSURLConnection* queryConnection = [[NSURLConnection alloc] initWithRequest:requestUrl delegate:delegate];
+    
+    [queryConnection release];
+    [requestUrl release];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {

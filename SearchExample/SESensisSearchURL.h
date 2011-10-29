@@ -14,11 +14,13 @@
     NSString* _what;
     NSString* _where;
     int _pageNumber;
+    int _rows;
 }
 +(SESensisSearchURL*) sensisSearchURLWithApiKey:(NSString*)apiKey;
 -(SESensisSearchURL*) initWithApiKey:(NSString*)apiKey;
 -(SESensisSearchURL*) searchFor:(NSString*)what;
 -(SESensisSearchURL*) at:(NSString*)where;
 -(SESensisSearchURL*) onPage:(int)pageNumber;
+-(SESensisSearchURL*) withRows:(int)rows;
 -(NSString*) asQueryUrl;
 @end

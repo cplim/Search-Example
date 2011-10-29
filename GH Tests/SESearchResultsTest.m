@@ -23,9 +23,7 @@
 - (void)setUp {
     [super setUp];
     
-    SESearchService* searchService = [[SESearchService alloc] init];
-    results = [[SESearchResults alloc] initWithSearchService:searchService apiKey:@"apiKey"];
-    [searchService release];
+    results = [[SESearchResults alloc] initWithApiKey:@"apiKey"];
     
     [NSURLProtocol registerClass:[ILCannedURLProtocol class]];
 	[ILCannedURLProtocol setCannedStatusCode:200];

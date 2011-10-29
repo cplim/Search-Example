@@ -8,9 +8,6 @@
 
 #import "SESensisSearchURL.h"
 
-@interface SESensisSearchURL (private) 
-@end
-
 @implementation SESensisSearchURL
 
 + (SESensisSearchURL*) sensisSearchURLWithApiKey:(NSString *)apiKey
@@ -63,6 +60,10 @@
     return self;
 }
 
+-(SESensisSearchURL*) withRows:(int)rows {
+    _rows = rows;
+    return self;
+}
 
 - (NSString*) asQueryUrl
 {
@@ -79,6 +80,10 @@
     
     if (_pageNumber > 1) {
         [urlString appendFormat:@"&page=%d", _pageNumber];
+    }
+    
+    if (_rows > 0) {
+        [urlString appendFormat:@"&rows=%d", _rows];
     }
     
     return urlString;

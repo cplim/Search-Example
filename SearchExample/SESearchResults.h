@@ -16,7 +16,7 @@
     NSArray* results;
     NSError* error;
 }
-- (id)initWithSearchService:(SESearchService*)searchService apiKey:(NSString*)apiKey;
+- (id)initWithApiKey:(NSString*)apiKey;
 - (void)fetchRestulsForPage:(int)pageNumber;
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
