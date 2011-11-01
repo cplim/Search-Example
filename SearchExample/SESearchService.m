@@ -36,11 +36,11 @@
     [super dealloc];
 }
 
-- (void)searchBy:(id<SEQueryURL>)search {
+- (void)searchBy:(id<SEQueryBuilder>)search {
     [self searchBy:search delegate:self];
 }
 
-- (void) searchBy:(id<SEQueryURL>)search delegate:(id)delegate
+- (void) searchBy:(id<SEQueryBuilder>)search delegate:(id)delegate
 {
     NSString* query = [search asQueryUrl];
     NSURL* queryUrl = [NSURL URLWithString:query];

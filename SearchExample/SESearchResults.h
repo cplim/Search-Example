@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SESearchService.h"
 
 @interface SESearchResults : NSObject {
     int totalResults;

@@ -6,8 +6,9 @@
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <GHUnitIOS/GHUnit.h>
 #import "SESearchService.h"
+
 
 @interface SESearchServiceTest : GHAsyncTestCase {
     SESearchService* _searchService;

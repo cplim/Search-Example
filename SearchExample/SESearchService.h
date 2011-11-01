@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SEQueryURL.h"
+#import "SEQueryBuilder.h"
 
 typedef void (^SearchSuccessCallback)(NSData*);
 typedef void (^SearchFailureCallback)(NSError*);
@@ -15,8 +15,8 @@ typedef void (^SearchFailureCallback)(NSError*);
 @interface SESearchService : NSObject {
     NSMutableData* data;
 }
-- (void)searchBy:(id<SEQueryURL>)search delegate:(id)delegate;
-- (void)searchBy:(id<SEQueryURL>)search;
+- (void)searchBy:(id<SEQueryBuilder>)search delegate:(id)delegate;
+- (void)searchBy:(id<SEQueryBuilder>)search;
 
 @property (nonatomic) BOOL completed;
 @property (nonatomic) int completedStatus;

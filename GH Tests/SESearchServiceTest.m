@@ -11,7 +11,7 @@
 #import "SESearchServiceTest.h"
 #import "SESensisQueryBuilder.h"
 
-@interface FailureUrl : NSObject<SEQueryURL> 
+@interface FailureUrl : NSObject<SEQueryBuilder> 
 @end
 
 @implementation FailureUrl

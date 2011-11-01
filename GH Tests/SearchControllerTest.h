@@ -6,9 +6,8 @@
 //  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
-#import <GHUnitIOS/GHTestCase.h>
+#import <GHUnitIOS/GHUnit.h>
 #import "SearchController.h"
-#import "SESearchService.h"
 
 @interface SearchControllerTest : GHTestCase
 {
