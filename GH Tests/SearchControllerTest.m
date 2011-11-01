@@ -9,6 +9,7 @@
 #import <OCMock/OCMock.h>
 #import "SearchControllerTest.h"
 #import "SESearchResultsController.h"
+#import "SESearchService.h"
 
 @implementation SearchControllerTest
 
