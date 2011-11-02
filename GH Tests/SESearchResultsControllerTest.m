@@ -14,7 +14,7 @@
 @implementation SESearchResultsControllerTest
 
 - (void)testShouldReturnTotalNumberOfRowsInSection {
-    SESearchResults* searchResults = [[SESearchResults alloc] initWithApiKey:nil];
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithQueryBuilderFactory:nil];
     NSArray* results = [NSArray arrayWithObjects:@"one", @"two", @"three", nil];
     [searchResults setResults:results];
     SESearchResultsController* searchResultsController = [[SESearchResultsController alloc] initWithSearchResults:searchResults];

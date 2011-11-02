@@ -11,14 +11,14 @@
 #import "JSONKit.h"
 
 @interface SESearchResults() 
-@property (nonatomic, retain) NSString* apiKey;
+@property (nonatomic, retain) SEQueryBuilderFactory* queryBuilderFactory;
 @property (nonatomic, retain) NSMutableData* data;
 - (void) searchBy:(SESensisQueryBuilder*)search delegate:(id)delegate;
 @end
 
 @implementation SESearchResults
 
-@synthesize apiKey;
+@synthesize queryBuilderFactory;
 @synthesize data;
 @synthesize searchTerm;
 @synthesize locationTerm;
@@ -26,10 +26,10 @@
 @synthesize error;
 @synthesize totalResults;
 
-- (id)initWithApiKey:(NSString *)key {
+- (id)initWithQueryBuilderFactory:(SEQueryBuilderFactory*)factory {
     self = [super init];
     if (self) {
-        self.apiKey = [key retain];
+        self.queryBuilderFactory = [factory retain];
         self.results = [NSArray array];
     }
     
@@ -37,7 +37,7 @@
 }
 
 - (void)dealloc {
-    [apiKey release];
+    [queryBuilderFactory release];
     [searchTerm release];
     [results release];
     [locationTerm release];
@@ -45,12 +45,17 @@
     [super dealloc];
 }
 
-- (void)fetchRestulsForPage:(int)pageNumber {
+- (int)pageNumberForOffset:(int)offset withLimit:(int)limit {
+    return 1 + (offset / limit);
+}
+
+- (void)fetchRestulsFrom:(int)offset limitedTo:(int)maxLimit {
     // build query url
-    SESensisQueryBuilder* searchUrl = [SESensisQueryBuilder queryBuilderWithApiKey:self.apiKey];
+    SESensisQueryBuilder* searchUrl = [queryBuilderFactory queryBuilder];
     [searchUrl searchFor:self.searchTerm]; 
     [searchUrl at:self.locationTerm];
-    [searchUrl onPage:pageNumber];
+    [searchUrl onPage:[self pageNumberForOffset:offset withLimit:maxLimit]];
+    [searchUrl withRows:maxLimit];
     
     // execute search
     [self searchBy:searchUrl delegate:self];
@@ -60,12 +65,8 @@
 {
     NSString* query = [search asQueryUrl];
     NSURL* queryUrl = [NSURL URLWithString:query];
-    NSURLRequest* requestUrl = [[NSURLRequest alloc] initWithURL:queryUrl];
-    
-    NSURLConnection* queryConnection = [[NSURLConnection alloc] initWithRequest:requestUrl delegate:delegate];
-    
-    [queryConnection release];
-    [requestUrl release];
+    NSURLRequest* requestUrl = [NSURLRequest requestWithURL:queryUrl];
+    [NSURLConnection connectionWithRequest:requestUrl delegate:delegate];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {

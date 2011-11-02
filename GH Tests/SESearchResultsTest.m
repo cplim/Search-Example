@@ -8,22 +8,27 @@
 
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
+#import <OCMock/OCMock.h>
 #import "SESearchResultsTest.h"
 #import "SESearchResults.h"
 #import "ILCannedURLProtocol.h"
 
 @interface SESearchResultsTest()
 @property (nonatomic, retain) SESearchResults* results;
+@property (nonatomic, retain) SEQueryBuilderFactory* queryBuilderFactory;
 @end
 
 @implementation SESearchResultsTest
 
 @synthesize results;
+@synthesize queryBuilderFactory;
+//@synthesize queryBuilder;
 
 - (void)setUp {
     [super setUp];
     
-    results = [[SESearchResults alloc] initWithApiKey:@"apiKey"];
+    queryBuilderFactory = [[SEQueryBuilderFactory alloc] initWithSensisApiKey:@"api key"];
+    results = [[SESearchResults alloc] initWithQueryBuilderFactory:queryBuilderFactory];
     
     [NSURLProtocol registerClass:[ILCannedURLProtocol class]];
 	[ILCannedURLProtocol setCannedStatusCode:200];
@@ -39,6 +44,7 @@
 	[ILCannedURLProtocol setCannedError:nil];
     
     [results release];
+    [queryBuilderFactory release];
     
     [super tearDown];
 }
@@ -58,34 +64,13 @@
     [results setLocationTerm:@"where"];
     
     // when
-    [results fetchRestulsForPage:1];
+    [results fetchRestulsFrom:0 limitedTo:20];
 
     // then
     expect(results.results.count).isGoing.toEqual(2);
     expect(results.results).toContain(@"name1");
     expect(results.results).toContain(@"name2");
 }
-
-- (void)testShouldAccumulateResultsWhenCallingSecondPage {
-    // given
-    [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
-    NSArray* page1Results = [NSArray arrayWithObjects:@"nameX", @"nameY", nil];
-    [results setResults:page1Results];
-    [results setLocationTerm:@"where"];
-    [results setSearchTerm:@"what"];
-    [results setLocationTerm:@"where"];
-    
-    // when
-    [results fetchRestulsForPage:2];
-    
-    // then
-    expect(results.results.count).isGoing.toEqual(4);
-    expect(results.results).toContain(@"nameX");
-    expect(results.results).toContain(@"nameY");
-    expect(results.results).toContain(@"name1");
-    expect(results.results).toContain(@"name2");
-}
-
 
 - (void)testInvalidResponse {
     // given
@@ -94,7 +79,7 @@
     [results setLocationTerm:@"where"];
     
     // when
-    [results fetchRestulsForPage:1];
+    [results fetchRestulsFrom:0 limitedTo:20];
     
     // then
     expect(results.results.count).isGoing.toEqual(0);
@@ -108,12 +93,66 @@
     [results setLocationTerm:@"where"];
     
     // when
-    [results fetchRestulsForPage:1];
+    [results fetchRestulsFrom:0 limitedTo:20];
     
     // then
     expect([results.error code]).isGoing.toEqual([error code]);
     expect([results.error domain]).toEqual([error domain]);
 }
 
+- (void)testShouldAccumulateResultsWhenCallingSecondPage {
+    // given
+    [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
+    NSArray* page1Results = [NSArray arrayWithObjects:@"nameX", @"nameY", nil];
+    [results setResults:page1Results];
+    [results setLocationTerm:@"where"];
+    [results setSearchTerm:@"what"];
+    [results setLocationTerm:@"where"];
+    
+    // whe
+    [results fetchRestulsFrom:21 limitedTo:20];
+    
+    // then
+    expect(results.results.count).isGoing.toEqual(4);
+    expect(results.results).toContain(@"nameX");
+    expect(results.results).toContain(@"nameY");
+    expect(results.results).toContain(@"name1");
+    expect(results.results).toContain(@"name2");
+}
+
+- (void) testShouldReturnPageOne {
+    expect([results pageNumberForOffset:0 withLimit:10]).toEqual(1);
+}
+
+- (void) testShouldReturnPageTwo {
+    expect([results pageNumberForOffset:10 withLimit:10]).toEqual(2);
+}
+
+- (void) testShouldVerifyArgumentsPassedToQueryBuilder {
+    NSString* searchTerm = @"what";
+    NSString* locationTerm = @"where";
+    NSString* queryUrl = @"http://url.com";
+    int pageNumber = 1;
+    int rows = 20;
+    
+    // expectations
+    id mockFactory = [OCMockObject mockForClass:[SEQueryBuilderFactory class]];
+    id mockBuilder = [OCMockObject mockForProtocol:@protocol(SEQueryBuilder)];
+    [[[mockFactory stub] andReturn:mockBuilder] queryBuilder];
+    [[[mockBuilder expect] andReturn:self] searchFor:searchTerm];
+    [[[mockBuilder expect] andReturn:self] at:locationTerm];
+    [[[mockBuilder expect] andReturn:self] onPage:pageNumber];
+    [[[mockBuilder expect] andReturn:self] withRows:rows];
+    [[[mockBuilder expect] andReturn:queryUrl] asQueryUrl];
+    
+    SESearchResults* searchResultsWithMock = [[SESearchResults alloc] initWithQueryBuilderFactory:mockFactory];
+    [searchResultsWithMock setSearchTerm:searchTerm];
+    [searchResultsWithMock setLocationTerm:locationTerm];
+    [searchResultsWithMock fetchRestulsFrom:0 limitedTo:rows];
+    
+    [searchResultsWithMock release];
+    [mockBuilder verify];
+    [mockFactory verify];
+}
 
 @end

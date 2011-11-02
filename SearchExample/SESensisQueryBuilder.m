@@ -34,14 +34,8 @@
 - (void) dealloc
 {
     [_apiKey release];
-    if(_what != nil) 
-    {
-        [_what release];
-    }
-    if(_where != nil) 
-    {
-        [_where release];
-    }
+    [_what release];
+    [_where release];
     [super dealloc];
 }
 
@@ -70,11 +64,11 @@
     NSMutableString* urlString = [NSMutableString stringWithFormat:@"http://api.sensis.com.au/ob-20110511/test/search?key=%@", 
                                   [_apiKey stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]]; 
     
-    if ([_what length] != 0) {
+    if ([_what length] > 0) {
         [urlString appendFormat:@"&query=%@", [_what stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     }
     
-    if ([_where length] != 0) {
+    if ([_where length] > 0) {
         [urlString appendFormat:@"&location=%@", [_where stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     }
     
@@ -86,7 +80,7 @@
         [urlString appendFormat:@"&rows=%d", _rows];
     }
     
-    return urlString;
+    return [NSString stringWithString:urlString];
 }
 
 @end

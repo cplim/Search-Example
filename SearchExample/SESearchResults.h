@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SEQueryBuilderFactory.h"
 
 @interface SESearchResults : NSObject {
     int totalResults;
@@ -15,8 +16,9 @@
     NSArray* results;
     NSError* error;
 }
-- (id)initWithApiKey:(NSString*)apiKey;
-- (void)fetchRestulsForPage:(int)pageNumber;
+- (id)initWithQueryBuilderFactory:(SEQueryBuilderFactory*)queryBuilderFactory;
+- (void)fetchRestulsFrom:(int)offset limitedTo:(int)maxLimit;
+- (int)pageNumberForOffset:(int)offset withLimit:(int)limit;
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
 @property (nonatomic, retain) NSArray* results;

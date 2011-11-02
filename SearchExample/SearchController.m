@@ -14,7 +14,7 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 
 @synthesize whatField;
 @synthesize whereField;
-@synthesize apiKey;
+@synthesize queryBuilderFactory;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,7 +30,7 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
 {
     [whatField release];
     [whereField release];
-    [apiKey release];
+    [queryBuilderFactory release];
     [super dealloc];
 }
 
@@ -65,12 +65,12 @@ static NSString * const APP_PROPERTY_FILE = @"Config.plist";
     [super viewDidLoad];
     
     // apiKey
-    if(apiKey == nil)
+    if(queryBuilderFactory == nil)
     {
         NSString* path = [[NSBundle mainBundle] bundlePath];
         NSString* realPath = [path stringByAppendingPathComponent:APP_PROPERTY_FILE];
         NSDictionary* dictionary = [NSDictionary dictionaryWithContentsOfFile:realPath];
-        self.apiKey = [[dictionary valueForKey:@"Sensis Search API Key"] retain];
+        queryBuilderFactory = [[SEQueryBuilderFactory alloc] initWithSensisApiKey:[dictionary valueForKey:@"Sensis Search API Key"]];
     }
 }
 

@@ -33,10 +33,10 @@
     [super search:sender];
     
     // search results
-    SESearchResults* searchResults = [[SESearchResults alloc] initWithApiKey:[self apiKey]];
+    SESearchResults* searchResults = [[SESearchResults alloc] initWithQueryBuilderFactory:[self queryBuilderFactory]];
     searchResults.searchTerm = [whatField text];
     searchResults.locationTerm = [whereField text];
-    [searchResults fetchRestulsForPage:1];
+    [searchResults fetchRestulsFrom:0 limitedTo:20];
     SEIPhoneSearchResultsController* resultsController = [[SEIPhoneSearchResultsController alloc] initWithSearchResults:searchResults];
     [self.navigationController pushViewController:resultsController animated:YES];
     [resultsController release];
