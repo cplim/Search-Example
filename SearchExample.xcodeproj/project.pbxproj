@@ -58,7 +58,6 @@
 		CFFA19BB14178B8E00413486 /* SESearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA19BA14178B8E00413486 /* SESearchService.m */; };
 		CFFBE814145C301800BD559B /* SEQueryBuilderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFBE813145C301800BD559B /* SEQueryBuilderFactory.m */; };
 		CFFBE815145C301800BD559B /* SEQueryBuilderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFBE813145C301800BD559B /* SEQueryBuilderFactory.m */; };
-		CFFBE818145C342700BD559B /* SEQueryBuilderFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFBE817145C342700BD559B /* SEQueryBuilderFactoryTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -592,7 +591,6 @@
 				CF4B02CE1446F6F100203EFE /* SEIPhoneSearchResultsController.m in Sources */,
 				CF4B02D71447019800203EFE /* SESearchResults.m in Sources */,
 				CFFBE814145C301800BD559B /* SEQueryBuilderFactory.m in Sources */,
-				CFFBE818145C342700BD559B /* SEQueryBuilderFactoryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
