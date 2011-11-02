@@ -13,7 +13,6 @@
 @interface SESearchResults() 
 @property (nonatomic, retain) SEQueryBuilderFactory* queryBuilderFactory;
 @property (nonatomic, retain) NSMutableData* data;
-- (void) searchBy:(SESensisQueryBuilder*)search delegate:(id)delegate;
 @end
 
 @implementation SESearchResults
@@ -51,22 +50,15 @@
 
 - (void)fetchRestulsFrom:(int)offset limitedTo:(int)maxLimit {
     // build query url
-    SESensisQueryBuilder* searchUrl = [queryBuilderFactory sensisQueryBuilder];
-    [searchUrl searchFor:self.searchTerm]; 
-    [searchUrl at:self.locationTerm];
-    [searchUrl onPage:[self pageNumberForOffset:offset withLimit:maxLimit]];
-    [searchUrl withRows:maxLimit];
+    SESensisQueryBuilder* queryBuilder = [queryBuilderFactory sensisQueryBuilder];
+    [queryBuilder searchFor:self.searchTerm]; 
+    [queryBuilder at:self.locationTerm];
+    [queryBuilder onPage:[self pageNumberForOffset:offset withLimit:maxLimit]];
+    [queryBuilder withRows:maxLimit];
     
     // execute search
-    [self searchBy:searchUrl delegate:self];
-}
-
-- (void) searchBy:(SESensisQueryBuilder*)search delegate:(id)delegate
-{
-    NSString* query = [search asQueryUrl];
-    NSURL* queryUrl = [NSURL URLWithString:query];
-    NSURLRequest* requestUrl = [NSURLRequest requestWithURL:queryUrl];
-    [NSURLConnection connectionWithRequest:requestUrl delegate:delegate];
+    NSURLRequest* requestUrl = [NSURLRequest requestWithURL:[NSURL URLWithString:[queryBuilder asQueryUrl]]];
+    [NSURLConnection connectionWithRequest:requestUrl delegate:self];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {

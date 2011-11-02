@@ -298,8 +298,8 @@
 		CF918075141621BA0021C598 /* SearchExample */ = {
 			isa = PBXGroup;
 			children = (
-				CF0DA4A31435ED0E0045885A /* Search */,
 				CFF70B3C1420DADC0029BA83 /* JSONKit-1.4 */,
+				CF0DA4A31435ED0E0045885A /* Search */,
 				CF91807E141621BA0021C598 /* SearchExampleAppDelegate.h */,
 				CF91807F141621BA0021C598 /* SearchExampleAppDelegate.m */,
 				CF906D86142608B3001A8FA0 /* Controllers */,
