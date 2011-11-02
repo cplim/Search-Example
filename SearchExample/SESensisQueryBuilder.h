@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SEQueryBuilder.h"
 
-@interface SESensisQueryBuilder : NSObject<SEQueryBuilder> {
+@interface SESensisQueryBuilder : NSObject {
     NSString* _apiKey;
     NSString* _what;
     NSString* _where;

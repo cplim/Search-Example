@@ -15,8 +15,8 @@
 
 - (void)testShouldReturnNewQueryBuilder {
     SEQueryBuilderFactory* factory = [[SEQueryBuilderFactory alloc] initWithSensisApiKey:@"sensis api key"];
-    id<SEQueryBuilder> builder1 = [factory queryBuilder];
-    id<SEQueryBuilder> builder2 = [factory queryBuilder];
+    SESensisQueryBuilder* builder1 = [factory sensisQueryBuilder];
+    SESensisQueryBuilder* builder2 = [factory sensisQueryBuilder];
     expect(builder1).Not.toBeIdenticalTo(builder2);
 }
 

@@ -63,7 +63,6 @@
 		CF0DA49B1435ECA70045885A /* SESensisResultsSummaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisResultsSummaryTest.m; sourceTree = "<group>"; };
 		CF0DA49E1435ECEF0045885A /* SESensisResultsSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESensisResultsSummary.h; sourceTree = "<group>"; };
 		CF0DA49F1435ECEF0045885A /* SESensisResultsSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESensisResultsSummary.m; sourceTree = "<group>"; };
-		CF0DA4A71435FF3E0045885A /* SEQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEQueryBuilder.h; sourceTree = "<group>"; };
 		CF4B02CB1446F6F100203EFE /* SEIPhoneSearchResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEIPhoneSearchResultsController.h; sourceTree = "<group>"; };
 		CF4B02CC1446F6F100203EFE /* SEIPhoneSearchResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEIPhoneSearchResultsController.m; sourceTree = "<group>"; };
 		CF4B02CD1446F6F100203EFE /* SEIPhoneSearchResultsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SEIPhoneSearchResultsController.xib; sourceTree = "<group>"; };
@@ -184,51 +183,29 @@
 			children = (
 				CFFBE812145C301800BD559B /* SEQueryBuilderFactory.h */,
 				CFFBE813145C301800BD559B /* SEQueryBuilderFactory.m */,
-				CF0DA4A71435FF3E0045885A /* SEQueryBuilder.h */,
-				CF0DA4A41435ED300045885A /* Sensis */,
-			);
-			name = Search;
-			sourceTree = "<group>";
-		};
-		CF0DA4A41435ED300045885A /* Sensis */ = {
-			isa = PBXGroup;
-			children = (
 				CF66BE25142291B300C55DB9 /* SESensisQueryBuilder.h */,
 				CF66BE26142291B300C55DB9 /* SESensisQueryBuilder.m */,
 				CF0DA49E1435ECEF0045885A /* SESensisResultsSummary.h */,
 				CF0DA49F1435ECEF0045885A /* SESensisResultsSummary.m */,
-			);
-			name = Sensis;
-			sourceTree = "<group>";
-		};
-		CF0DA4A51435ED5C0045885A /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				CFFBE816145C342700BD559B /* SEQueryBuilderFactoryTest.h */,
-				CFFBE817145C342700BD559B /* SEQueryBuilderFactoryTest.m */,
-				CF0DA4A61435ED650045885A /* Sensis */,
+				CF4B02D51447019800203EFE /* SESearchResults.h */,
+				CF4B02D61447019800203EFE /* SESearchResults.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
 		};
-		CF0DA4A61435ED650045885A /* Sensis */ = {
+		CF0DA4A51435ED5C0045885A /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				CF66BE221422907C00C55DB9 /* SESensisQueryBuilderTest.h */,
 				CF66BE231422907C00C55DB9 /* SESensisQueryBuilderTest.m */,
 				CF0DA49A1435ECA70045885A /* SESensisResultsSummaryTest.h */,
 				CF0DA49B1435ECA70045885A /* SESensisResultsSummaryTest.m */,
+				CF52CE6214543D7500E805F8 /* SESearchResultsTest.h */,
+				CF52CE6314543D7500E805F8 /* SESearchResultsTest.m */,
+				CFFBE816145C342700BD559B /* SEQueryBuilderFactoryTest.h */,
+				CFFBE817145C342700BD559B /* SEQueryBuilderFactoryTest.m */,
 			);
-			name = Sensis;
-			sourceTree = "<group>";
-		};
-		CF4B02D41447016200203EFE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				CF4B02D51447019800203EFE /* SESearchResults.h */,
-				CF4B02D61447019800203EFE /* SESearchResults.m */,
-			);
-			name = Models;
+			name = Search;
 			sourceTree = "<group>";
 		};
 		CF4D961614558FC800067011 /* Utility */ = {
@@ -238,15 +215,6 @@
 				CF4D961C145591F400067011 /* ILCannedURLProtocol.m */,
 			);
 			name = Utility;
-			sourceTree = "<group>";
-		};
-		CF52CE5B1454399E00E805F8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				CF52CE6214543D7500E805F8 /* SESearchResultsTest.h */,
-				CF52CE6314543D7500E805F8 /* SESearchResultsTest.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		CF6AB8E51428B8D100A67940 /* Controllers */ = {
@@ -263,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				CF4D961614558FC800067011 /* Utility */,
-				CF52CE5B1454399E00E805F8 /* Models */,
 				CF0DA4A51435ED5C0045885A /* Search */,
 				CF6AB8E51428B8D100A67940 /* Controllers */,
 				CF77778B141B2CC100690920 /* Supporting Files */,
@@ -331,7 +298,6 @@
 		CF918075141621BA0021C598 /* SearchExample */ = {
 			isa = PBXGroup;
 			children = (
-				CF4B02D41447016200203EFE /* Models */,
 				CF0DA4A31435ED0E0045885A /* Search */,
 				CFF70B3C1420DADC0029BA83 /* JSONKit-1.4 */,
 				CF91807E141621BA0021C598 /* SearchExampleAppDelegate.h */,

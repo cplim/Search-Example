@@ -3,7 +3,7 @@
 //  SearchExample
 //
 //  Created by C.P. Lim on 13/10/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 C.P. Lim. All rights reserved.
 //
 
 #import "SESearchResults.h"
@@ -51,7 +51,7 @@
 
 - (void)fetchRestulsFrom:(int)offset limitedTo:(int)maxLimit {
     // build query url
-    SESensisQueryBuilder* searchUrl = [queryBuilderFactory queryBuilder];
+    SESensisQueryBuilder* searchUrl = [queryBuilderFactory sensisQueryBuilder];
     [searchUrl searchFor:self.searchTerm]; 
     [searchUrl at:self.locationTerm];
     [searchUrl onPage:[self pageNumberForOffset:offset withLimit:maxLimit]];

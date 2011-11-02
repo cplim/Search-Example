@@ -137,8 +137,8 @@
     
     // expectations
     id mockFactory = [OCMockObject mockForClass:[SEQueryBuilderFactory class]];
-    id mockBuilder = [OCMockObject mockForProtocol:@protocol(SEQueryBuilder)];
-    [[[mockFactory stub] andReturn:mockBuilder] queryBuilder];
+    id mockBuilder = [OCMockObject mockForClass:[SESensisQueryBuilder class]];
+    [[[mockFactory stub] andReturn:mockBuilder] sensisQueryBuilder];
     [[[mockBuilder expect] andReturn:self] searchFor:searchTerm];
     [[[mockBuilder expect] andReturn:self] at:locationTerm];
     [[[mockBuilder expect] andReturn:self] onPage:pageNumber];

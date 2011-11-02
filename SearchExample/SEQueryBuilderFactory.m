@@ -30,7 +30,7 @@
     [super dealloc];
 }
 
-- (id<SEQueryBuilder>) queryBuilder {
+- (SESensisQueryBuilder*) sensisQueryBuilder {
     return [SESensisQueryBuilder queryBuilderWithApiKey:sensisApiKey];
 }
 

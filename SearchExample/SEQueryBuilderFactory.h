@@ -11,5 +11,5 @@
 
 @interface SEQueryBuilderFactory : NSObject
 - (id) initWithSensisApiKey:(NSString*)apiKey;
-- (id<SEQueryBuilder>) queryBuilder;
+- (SESensisQueryBuilder*) sensisQueryBuilder;
 @end
