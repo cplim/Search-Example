@@ -1,5 +1,5 @@
 //
-//  SearchControllerTest.m
+//  SearchController_iPhoneTest.m
 //  SearchExample
 //
 //  Created by C.P. Lim on 20/09/11.
@@ -7,18 +7,14 @@
 //
 
 #import <OCMock/OCMock.h>
-#import "SearchControllerTest.h"
+#import "SearchController_iPhoneTest.h"
 #import "SESearchResultsController.h"
-#import "SESearchService.h"
 
-@implementation SearchControllerTest
+@implementation SearchController_iPhoneTest
 
 - (void) setUp
 {
-    mockSearchService = [OCMockObject mockForClass:[SESearchService class]];
-    id bundle = [OCMockObject mockForClass:[NSBundle class]];
-    
-    searchController = [[SearchController alloc] initWithNibName:nil bundle:bundle];
+    searchController = [[SearchController_iPhone alloc] initWithNibName:nil bundle:nil];
 }
 
 - (void)tearDown

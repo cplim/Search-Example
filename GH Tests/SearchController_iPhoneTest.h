@@ -1,5 +1,5 @@
 //
-//  SearchControllerTest.h
+//  SearchController_iPhoneTest.h
 //  SearchExample
 //
 //  Created by C.P. Lim on 20/09/11.
@@ -7,12 +7,10 @@
 //
 
 #import <GHUnitIOS/GHUnit.h>
-#import "SearchController.h"
+#import "SearchController_iPhone.h"
 
-@interface SearchControllerTest : GHTestCase
-{
-    SearchController* searchController;
-    id mockSearchService;
+@interface SearchController_iPhoneTest : GHTestCase {
+    SearchController_iPhone* searchController;
 }
 -(void)testShouldDelegateToNextControllerWithSearchResults;
 @end
