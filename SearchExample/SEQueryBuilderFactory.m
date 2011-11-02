@@ -26,12 +26,12 @@
 }
 
 - (void)dealloc {
-    [self.sensisApiKey release];
+    [sensisApiKey release];
     [super dealloc];
 }
 
 - (id<SEQueryBuilder>) queryBuilder {
-    return [[SESensisQueryBuilder queryBuilderWithApiKey:sensisApiKey] autorelease];
+    return [SESensisQueryBuilder queryBuilderWithApiKey:sensisApiKey];
 }
 
 
