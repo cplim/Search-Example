@@ -14,6 +14,9 @@
 #import "ILCannedURLProtocol.h"
 
 @interface SESearchResultsTest()
+- (NSData*)validResponseData;
+- (NSData*)validResponseDataForPage:(int)pageNumber;
+- (NSData*)invalidResponseData;
 @property (nonatomic, retain) SESearchResults* results;
 @property (nonatomic, retain) SEQueryBuilderFactory* queryBuilderFactory;
 @end
@@ -50,26 +53,15 @@
 }
 
 - (NSData*) validResponseData {
-    return [@"{\"results\":[{\"name\":\"name1\"},{\"name\":\"name2\"}], \"totalResults\":10}" dataUsingEncoding:NSUTF8StringEncoding];
+    return [self validResponseDataForPage:1];
+}
+
+- (NSData*) validResponseDataForPage:(int)pageNumber {
+    return [[NSString stringWithFormat:@"{\"count\":\"2\",\"currentPage\":\"%d\",\"results\":[{\"name\":\"name1\"},{\"name\":\"name2\"}], \"totalResults\":10}", pageNumber] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSData*) invalidResponseData {
     return [@"{\"ok\":\"no\"}" dataUsingEncoding:NSUTF8StringEncoding];
-}
-
-- (void)testValidResponse {
-    // given
-    [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
-    [results setSearchTerm:@"what"];
-    [results setLocationTerm:@"where"];
-    
-    // when
-    [results fetchRestulsFrom:0 limitedTo:20];
-
-    // then
-    expect(results.results.count).isGoing.toEqual(2);
-    expect(results.results).toContain(@"name1");
-    expect(results.results).toContain(@"name2");
 }
 
 - (void)testInvalidResponse {
@@ -79,7 +71,7 @@
     [results setLocationTerm:@"where"];
     
     // when
-    [results fetchRestulsFrom:0 limitedTo:20];
+    [results fetchRestulsFrom:0 limitedTo:2];
     
     // then
     expect(results.results.count).isGoing.toEqual(0);
@@ -93,24 +85,61 @@
     [results setLocationTerm:@"where"];
     
     // when
-    [results fetchRestulsFrom:0 limitedTo:20];
+    [results fetchRestulsFrom:0 limitedTo:2];
     
     // then
     expect([results.error code]).isGoing.toEqual([error code]);
     expect([results.error domain]).toEqual([error domain]);
 }
 
-- (void)testShouldAccumulateResultsWhenCallingSecondPage {
+- (void)testShouldReturnTotalResultsCount {
     // given
     [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
-    NSArray* page1Results = [NSArray arrayWithObjects:@"nameX", @"nameY", nil];
-    [results setResults:page1Results];
+    [results setSearchTerm:@"what"];
+    [results setLocationTerm:@"where"];
+    
+    // when
+    [results fetchRestulsFrom:0 limitedTo:2];
+    
+    // then
+    expect(results.totalResults).isGoing.toEqual(10);
+}
+
+
+- (void) testShouldReturnPageOne {
+    expect([results pageNumberForOffset:0 withLimit:10]).toEqual(1);
+}
+
+- (void) testShouldReturnPageTwo {
+    expect([results pageNumberForOffset:10 withLimit:10]).toEqual(2);
+}
+
+- (void)testShouldReturnResultsArray {
+    // given
+    [ILCannedURLProtocol setCannedResponseData:[self validResponseData]];
+    [results setSearchTerm:@"what"];
+    [results setLocationTerm:@"where"];
+    
+    // when
+    [results fetchRestulsFrom:0 limitedTo:2];
+    
+    // then
+    expect(results.results.count).isGoing.toEqual(2);
+    expect(results.results).toContain(@"name1");
+    expect(results.results).toContain(@"name2");
+}
+
+- (void)testShouldAccumulateResultsWhenCallingSecondPage {
+    // given
+    [ILCannedURLProtocol setCannedResponseData:[self validResponseDataForPage:2]];
+    NSArray* existingResults = [NSArray arrayWithObjects:@"nameX", @"nameY", nil];
+    [results setResults:existingResults];
     [results setLocationTerm:@"where"];
     [results setSearchTerm:@"what"];
     [results setLocationTerm:@"where"];
     
-    // whe
-    [results fetchRestulsFrom:21 limitedTo:20];
+    // when
+    [results fetchRestulsFrom:2 limitedTo:2];
     
     // then
     expect(results.results.count).isGoing.toEqual(4);
@@ -120,13 +149,24 @@
     expect(results.results).toContain(@"name2");
 }
 
-- (void) testShouldReturnPageOne {
-    expect([results pageNumberForOffset:0 withLimit:10]).toEqual(1);
+- (void)testShouldNotFetchDataWhenOffsetAlreadyContainsData {
+    // expectations
+    id mockFactory = [OCMockObject mockForClass:[SEQueryBuilderFactory class]];
+    SESearchResults* searchResultsWithMock = [[SESearchResults alloc] initWithQueryBuilderFactory:mockFactory];
+    
+    NSArray* existingResults = [NSArray arrayWithObjects:@"nameX", @"nameY", @"nameZ", nil];
+    [searchResultsWithMock setResults:existingResults];
+    [searchResultsWithMock setLocationTerm:@"where"];
+    [searchResultsWithMock setSearchTerm:@"what"];
+    [searchResultsWithMock setLocationTerm:@"where"];
+    
+    // execute
+    [searchResultsWithMock fetchRestulsFrom:2 limitedTo:2];
+    
+    // verify
+    [mockFactory verify];
 }
 
-- (void) testShouldReturnPageTwo {
-    expect([results pageNumberForOffset:10 withLimit:10]).toEqual(2);
-}
 
 - (void) testShouldVerifyArgumentsPassedToQueryBuilder {
     NSString* searchTerm = @"what";

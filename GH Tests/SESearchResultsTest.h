@@ -9,8 +9,13 @@
 #import <GHUnitIOS/GHUnit.h>
 
 @interface SESearchResultsTest : GHTestCase
-- (void)testValidResponse;
 - (void)testInvalidResponse;
 - (void)testErrorResponse;
+- (void)testShouldReturnTotalResultsCount;
+- (void)testShouldReturnPageOne;
+- (void)testShouldReturnPageTwo;
+- (void)testShouldReturnResultsArray;
 - (void)testShouldAccumulateResultsWhenCallingSecondPage;
+- (void)testShouldNotFetchDataWhenOffsetAlreadyContainsData;
+- (void)testShouldVerifyArgumentsPassedToQueryBuilder;
 @end

@@ -44,21 +44,23 @@
     [super dealloc];
 }
 
-- (int)pageNumberForOffset:(int)offset withLimit:(int)limit {
-    return 1 + (offset / limit);
+- (int)pageNumberForOffset:(int)offset withLimit:(int)maxLimit {
+    return 1 + (offset / maxLimit);
 }
 
 - (void)fetchRestulsFrom:(int)offset limitedTo:(int)maxLimit {
-    // build query url
-    SESensisQueryBuilder* queryBuilder = [queryBuilderFactory sensisQueryBuilder];
-    [queryBuilder searchFor:self.searchTerm]; 
-    [queryBuilder at:self.locationTerm];
-    [queryBuilder onPage:[self pageNumberForOffset:offset withLimit:maxLimit]];
-    [queryBuilder withRows:maxLimit];
-    
-    // execute search
-    NSURLRequest* requestUrl = [NSURLRequest requestWithURL:[NSURL URLWithString:[queryBuilder asQueryUrl]]];
-    [NSURLConnection connectionWithRequest:requestUrl delegate:self];
+    if(offset >= [self.results count]) {
+        // build query url
+        SESensisQueryBuilder* queryBuilder = [queryBuilderFactory sensisQueryBuilder];
+        [queryBuilder searchFor:self.searchTerm]; 
+        [queryBuilder at:self.locationTerm];
+        [queryBuilder onPage:[self pageNumberForOffset:offset withLimit:maxLimit]];
+        [queryBuilder withRows:maxLimit];
+        
+        // execute search
+        NSURLRequest* requestUrl = [NSURLRequest requestWithURL:[NSURL URLWithString:[queryBuilder asQueryUrl]]];
+        [NSURLConnection connectionWithRequest:requestUrl delegate:self];
+    }
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection {

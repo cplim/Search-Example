@@ -17,8 +17,8 @@
     NSError* error;
 }
 - (id)initWithQueryBuilderFactory:(SEQueryBuilderFactory*)queryBuilderFactory;
-- (void)fetchRestulsFrom:(int)offset limitedTo:(int)maxLimit;
-- (int)pageNumberForOffset:(int)offset withLimit:(int)limit;
+- (void)fetchRestulsFrom:(int)offset limitedTo:(int)count;
+- (int)pageNumberForOffset:(int)offset withLimit:(int)limit; // should not be public
 @property (nonatomic, retain) NSString* searchTerm;
 @property (nonatomic, retain) NSString* locationTerm;
 @property (nonatomic, retain) NSArray* results;
